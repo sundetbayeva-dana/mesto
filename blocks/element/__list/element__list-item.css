@@ -1,0 +1,7 @@
+.element__list-item {
+    width: 100%;
+    background-color: #fff;    
+    border-radius: 10px 10px 0px 0px;
+    box-sizing: border-box;
+    overflow: hidden;    
+}
