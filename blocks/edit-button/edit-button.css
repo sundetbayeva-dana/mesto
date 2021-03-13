@@ -1,5 +1,6 @@
 .edit-button {
     width: 24px;
     height: 24px;
-    border: solid 5px red;
+    border: solid 2px;
+    position: relative;
 }
