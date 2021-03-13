@@ -1,8 +1,10 @@
 .header__line {
     border: none;
     height: 1px;
+    box-sizing: border-box;
     color: #fff;
     background-color:#fff;
     opacity: .7;
-    margin: 40px 0 0; 
+    margin: 36px 0 0;
+    
 }
