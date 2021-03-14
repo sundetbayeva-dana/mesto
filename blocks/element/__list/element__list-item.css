@@ -3,5 +3,6 @@
     background-color: #fff;    
     border-radius: 10px 10px 0px 0px;
     box-sizing: border-box;
-    overflow: hidden;    
+    overflow: hidden;
+    object-fit: cover;
 }

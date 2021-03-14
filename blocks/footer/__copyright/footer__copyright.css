@@ -2,3 +2,8 @@
     width: calc(100% - 2*200px);
     margin: 66px 0 60px;
 }
+@media screen and (max-width: 767px) {
+    .footer__copyright {
+        width: 100%;
+    }
+}

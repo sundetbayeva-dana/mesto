@@ -1,3 +1,9 @@
 .profile__about {
     display: flex;
+    width: 100%;
+}
+@media screen and (max-width) {
+    .profile__about {
+        justify-content: center;
+    }
 }

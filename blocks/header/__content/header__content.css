@@ -2,3 +2,10 @@
     margin: 45px auto 0;
     width: calc(100% - 2*200px);
 }
+
+@media screen and (max-width: 767px) {
+    .header__content {
+        width: 100%;
+        margin: 28px 0 0;
+}
+}

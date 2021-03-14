@@ -1,3 +1,12 @@
 .element__list-like {
     margin: 0 0 0 auto;
+    box-sizing:border-box;
+    max-height: 19px;    
+}
+.element__list-like:hover {
+    opacity: .5;
+    cursor: pointer;    
+}
+.element__list-like:active {
+    background-image: url(./../../../images/like-active.svg);
 }

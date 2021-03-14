@@ -6,4 +6,13 @@
     line-height: 48px;
     white-space: pre-wrap;
     margin: 0;
+    text-align: center;
+}
+@media screen and (max-width: 1023px) {
+    .profile__info-name {
+        text-align: center;
+        font-size: 27px;
+        line-height: 33px;
+        position: relative;
+    }
 }

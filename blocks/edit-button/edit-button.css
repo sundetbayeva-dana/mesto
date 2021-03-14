@@ -4,3 +4,13 @@
     border: solid 2px;
     position: relative;
 }
+@media screen and (max-width: 767px) {
+    .edit-button {
+        left: 240px;
+        top: -65px;
+    }
+}
+.edit-button:hover {
+    opacity: .6;
+    cursor: pointer
+}

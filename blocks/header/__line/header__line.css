@@ -2,9 +2,13 @@
     border: none;
     height: 1px;
     box-sizing: border-box;
-    color: #fff;
-    background-color:#fff;
+    color: #545454;
+    background-color:#545454;
     opacity: .7;
-    margin: 36px 0 0;
-    
+    margin: 36px 0 0;    
+}
+@media screen and (max-width: 767px) {
+    .header__line {
+        margin: 31.6px 0 0;
+    }
 }
