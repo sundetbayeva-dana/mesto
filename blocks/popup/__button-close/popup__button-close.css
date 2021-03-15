@@ -1,4 +1,5 @@
 /*.popup__button-close {
+    display: flex;    
     background-image: url(./../../../images/close-button.svg);
     position: absolute;
     right: -50px;
@@ -6,12 +7,12 @@
     width: 40px;
     height: 40px;
     border: none;
-    background-color: #000;*/
+    background-color: #000;
     
-    /*background-repeat: no-repeat;
+    background-repeat: no-repeat;
     box-sizing: border-box;
     padding: 0;
-    /*
+    
     border: none;
     font: inherit;
     color: inherit;
@@ -25,7 +26,22 @@
     height: 40px;
     border: none;
     background-color: #000;
+    color: #fff;
+    transform: rotate(45deg);
+    font-size: 50px;
 }
+
+
+
+/*.popup__button-close {
+    position: absolute;
+    right: -50px;
+    top: -50px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: #000;
+}*/
 .popup__button-close:hover {
     opacity: .6;
     cursor: pointer;

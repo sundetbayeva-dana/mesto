@@ -1,8 +1,9 @@
 .edit-button {
     width: 24px;
     height: 24px;
-    border: solid 2px;
+    border: solid #fff 2px;
     position: relative;
+    background-color: #000;
 }
 @media screen and (max-width: 767px) {
     .edit-button {
