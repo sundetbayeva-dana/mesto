@@ -14,40 +14,42 @@
         </header>
         <main class="page__content">
             <section class="profile">
-                <div class="popup">
+                <form class="popup">
                     <div class="popup__overlay"></div>
                     <div class="popup__content">
                         <h2 class="popup__title">Редактировать профиль</h2>
-                        <div>
-                            <img src="./images/close-button.svg" class="popup__button-close">
-                        </div>
+                        <button  class="popup__button-close">
+                            <!--<img src="./images/close-button.svg" class="popup__button-close">   -->                         
+                        </button>
                         <div class="input">
-                            <input type="text" placeholder="Жак-Ив Кусто" class="popup__name input__text">
-                            <input type="text" placeholder="Исследователь океана" class="popup__activity input__text">
+                            <!--<input type="text" placeholder="Жак-Ив Кусто" class="popup__name input__text">
+                            <input type="text" placeholder="Исследователь океана" class="popup__activity input__text">-->
+                            <input type="text" class="popup__name input__text">
+                            <input type="text" class="popup__activity input__text">
+                            
                             <button class="popup__button-save">
                                 Добавить
                             </button>
                         </div>
                     </div>
-                </div>
+                </form>
 
                 <figure class="profile__figure">
                     <div class="profile__avatar">
                         <img src="images/Avatar.jpg" alt="Аватарка пользователя" class="profile__image">
-
                     </div>
                     <figcaption class="profile__info">
                         <div class="profile__about">
                             <h1 class="profile__info-name">Жак-Ив Кусто</h1>
                             <p class="profile__info-activity">Исследователь океана</p>
                         </div>
-                        <div class="edit-button">
+                        <button class="edit-button">
                             <img src="./images/pen.svg" class="edit-button__pen">
-                        </div>           
+                        </button>           
                     </figcaption>
-                    <div class="add-button">
+                    <button class="add-button">
                         <img src="./images/plus.svg" class="add-button__plus">
-                    </div>
+                    </button>
                 </figure>
             </section>
             <section class="elements">
@@ -103,6 +105,6 @@
         </main>      
 
     </div>
-    
+    <script src="./scripts/index.js"></script>
 </body>
 </html>
