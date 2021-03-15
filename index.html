@@ -14,44 +14,45 @@
         </header>
         <main class="page__content">
             <section class="profile">
-                <form class="popup">
+                
+                <div class="profile__figure">
+                    <div class="profile__avatar">
+                        <img src="images/Avatar.jpg" alt="Аватарка пользователя" class="profile__image">
+                    </div>
+                    <div class="profile__info">
+                        <div class="profile__about">
+                            <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+                            <p class="profile__info-activity">Исследователь океана</p>
+                        </div>
+                        <button class="edit-button" type="button">
+                            <img src="./images/pen.svg" class="edit-button__pen">
+                        </button>           
+                    </div>
+                    <button class="add-button" type="button">
+                        <img src="./images/plus.svg" class="add-button__plus">
+                    </button>
+                </div>
+                <div class="popup">
                     <div class="popup__overlay"></div>
                     <div class="popup__content">
                         <h2 class="popup__title">Редактировать профиль</h2>
-                        <button  class="popup__button-close">
+                        <button class="popup__button-close" type="reset">
                             <!--<img src="./images/close-button.svg" class="popup__button-close">   -->                         
                         </button>
-                        <div class="input">
+                        <form class="input">
                             <!--<input type="text" placeholder="Жак-Ив Кусто" class="popup__name input__text">
                             <input type="text" placeholder="Исследователь океана" class="popup__activity input__text">-->
                             <input type="text" class="popup__name input__text">
                             <input type="text" class="popup__activity input__text">
                             
-                            <button class="popup__button-save">
+                            <button class="popup__button-save" type="submit">
                                 Добавить
                             </button>
-                        </div>
+                        </form>
                     </div>
-                </form>
-
-                <figure class="profile__figure">
-                    <div class="profile__avatar">
-                        <img src="images/Avatar.jpg" alt="Аватарка пользователя" class="profile__image">
-                    </div>
-                    <figcaption class="profile__info">
-                        <div class="profile__about">
-                            <h1 class="profile__info-name">Жак-Ив Кусто</h1>
-                            <p class="profile__info-activity">Исследователь океана</p>
-                        </div>
-                        <button class="edit-button">
-                            <img src="./images/pen.svg" class="edit-button__pen">
-                        </button>           
-                    </figcaption>
-                    <button class="add-button">
-                        <img src="./images/plus.svg" class="add-button__plus">
-                    </button>
-                </figure>
+                </div>
             </section>
+            
             <section class="elements">
                 <ul class="elements__list element">
                     <li class="element__list-item">
@@ -107,4 +108,5 @@
     </div>
     <script src="./scripts/index.js"></script>
 </body>
+
 </html>
