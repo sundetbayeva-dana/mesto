@@ -2,7 +2,7 @@
     display: flex;
     width: 100%;
 }
-@media screen and (max-width) {
+@media screen and (max-width: 767px) {
     .profile__about {
         justify-content: center;
     }

@@ -1,14 +1,16 @@
 .edit-button {
+    display: flex;
     width: 24px;
     height: 24px;
     border: solid #fff 2px;
     position: relative;
+    align-self: center;
     background-color: #000;
+    margin: 0 0 0 18px;
 }
 @media screen and (max-width: 767px) {
     .edit-button {
-        left: 240px;
-        top: -65px;
+        margin: 0 0 0 18px;
     }
 }
 .edit-button:hover {

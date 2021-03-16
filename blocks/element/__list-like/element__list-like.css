@@ -1,6 +1,6 @@
 .element__list-like {
     margin: 0 0 0 auto;
-    box-sizing:border-box;
+    box-sizing: border-box;
     max-height: 19px;    
 }
 .element__list-like:hover {
@@ -9,4 +9,5 @@
 }
 .element__list-like:active {
     background-image: url(./../../../images/like-active.svg);
+    opacity: 1;
 }

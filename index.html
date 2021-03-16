@@ -13,25 +13,27 @@
             <hr class="header__line">
         </header>
         <main class="page__content">
-            <section class="profile">
-                
-                <div class="profile__figure">
+            <section class="profile">                
+                <figure class="profile__figure">
                     <div class="profile__avatar">
                         <img src="images/Avatar.jpg" alt="Аватарка пользователя" class="profile__image">
                     </div>
-                    <div class="profile__info">
+                    <figcaption class="profile__info">
                         <div class="profile__about">
-                            <h1 class="profile__info-name">Жак-Ив Кусто</h1>
-                            <p class="profile__info-activity">Исследователь океана</p>
-                        </div>
-                        <button class="edit-button" type="button">
-                            <img src="./images/pen.svg" class="edit-button__pen">
-                        </button>           
-                    </div>
+                            <!--<h1 class="profile__info-name">Жак-Ив Кусто</h1>-->
+                            <div class="profile__info-name-cont">
+                                <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+                                <button class="edit-button" type="button">
+                                    <img src="./images/pen.svg" class="edit-button__pen">
+                                </button>  
+                            </div>
+                            <p class="profile__info-activity">Исследователь океана</p>                             
+                        </div>                                
+                    </figcaption>
                     <button class="add-button" type="button">
                         <img src="./images/plus.svg" class="add-button__plus">
                     </button>
-                </div>
+                </figure>
                 <div class="popup">
                     <div class="popup__overlay"></div>
                     <div class="popup__content">

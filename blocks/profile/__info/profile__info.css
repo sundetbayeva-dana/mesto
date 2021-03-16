@@ -10,7 +10,6 @@
     .profile__info {
         flex-direction: column;
         margin: 0;
-        width: 100%;  
-        
+        width: 100%;        
     }
 }
