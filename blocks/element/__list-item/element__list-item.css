@@ -1,8 +1,11 @@
 .element__list-item {
     width: 100%;
-    background-color: #fff;    
+    background-color: #fff;
     border-radius: 10px;
     box-sizing: border-box;
-    overflow: hidden;
-    object-fit: cover;
+    overflow: hidden;    
+    /*object-fit: cover;*/
+    border: none;
+    
+    
 }

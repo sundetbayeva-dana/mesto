@@ -13,6 +13,7 @@
         text-align: center;
         font-size: 27px;
         line-height: 33px;
-        position: relative;
+        /*position: relative;*/
+        margin-left: 36px; 
     }
 }
