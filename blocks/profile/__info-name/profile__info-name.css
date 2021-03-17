@@ -10,10 +10,13 @@
 }
 @media screen and (max-width: 1023px) {
     .profile__info-name {
-        text-align: center;
+        justify-self:start;
+        align-self: flex-start;
+        text-align:start;
         font-size: 27px;
         line-height: 33px;
         /*position: relative;*/
-        margin-left: 36px; 
+        /*margin-left: 46px; */
+        padding-left: 28px;
     }
 }

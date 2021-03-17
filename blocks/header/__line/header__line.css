@@ -12,7 +12,8 @@
     border-bottom-style: 1px solid #545454;
     border-top: hidden;
     border-left-style: hidden;
-    border-right-style: hidden;    
+    border-right-style: hidden;
+    margin: 36px 0 0; 
     opacity: .7;
 }
 @media screen and (max-width: 767px) {
