@@ -15,6 +15,8 @@
     border-right-style: hidden;
     margin: 36px 0 0; 
     opacity: .7;
+    margin: 36px 0 0;
+    
 }
 @media screen and (max-width: 767px) {
     .header__line {
