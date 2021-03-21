@@ -1,5 +1,5 @@
 .footer {
-    font-family: 'Inter';
+    font-family: 'Inter', Arial, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -9,7 +9,6 @@
 @media screen and (max-width: 767px) {
     .footer {
         font-size: 14px;
-        line-height: 17px;
-    }
+        line-height: 17px;    }
 
 }

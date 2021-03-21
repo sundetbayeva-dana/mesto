@@ -1,12 +1,11 @@
-.popup__content {
+.popup__content {    
+    display: flex;
     position: absolute;
     left: 50%;
-    top: 195px;
-    right: 0;
-    bottom: 0;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    flex-direction: column;    
     width: 430px;
-    height: 330px;
     background-color: #FFF;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
     border-radius: 10px;

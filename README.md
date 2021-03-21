@@ -4,4 +4,4 @@
 
 В проекте использовались технологии flex, grid.
 
-Ссылка на gh-pages https://github.com/sundetbayeva-dana/mesto/blob/develop/index.html
+Ссылка на gh-pages https://sundetbayeva-dana.github.io/mesto/

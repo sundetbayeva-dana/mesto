@@ -1,7 +1,6 @@
-.input__text {    
-    /*opacity: 0.2;*/
+.popup__form-text {  
     border: none;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
     box-sizing: border-box;
     width: 100%;
     font-family: 'Inter', Arial, sans-serif;
@@ -12,7 +11,7 @@
     height: 27px;
     padding: 0;
 }
-.input__text::placeholder {
+.popup__form-text::placeholder {
     font-family: 'Inter', Arial, sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -20,13 +19,8 @@
     line-height: 17px;
     color: #000;  
 }
-.input__text:focus {
+.popup__form-text:focus {
     border: solid #6ba5c2;
     opacity: 1;
 }
-/*@media screen and (max-width: 767px) {
-    .input__text {
-        width: calc(100% - 2*22px);
-    }
-}*/
 

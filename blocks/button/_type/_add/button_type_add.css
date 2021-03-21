@@ -1,0 +1,25 @@
+.button_type_add {
+    display: flex;
+    align-self: center;
+    width: 150px;
+    height: 50px;
+    border: solid 2px #fff;
+    margin: 0 0 0 auto;
+    background: rgba(255, 255, 255, 0);
+    background-image: url(./../../../../images/plus.svg);
+    object-fit: cover;
+    background-repeat: no-repeat;
+    box-sizing: content-box;
+    padding: 0;
+    background-position: center center;
+}
+@media screen and (max-width: 1023px) {
+    .button_type_add{
+        width: 282px;
+        margin: 36px 0 0;
+    }
+}
+.button_type_add:hover {
+    opacity: .6;
+    cursor: pointer;    
+}

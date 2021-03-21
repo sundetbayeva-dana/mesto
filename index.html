@@ -9,94 +9,79 @@
 <body class="page">
     <div class="page__container">
         <header class="header">
-            <div class=" header__content">
-                <img src="./images/logo.svg" alt="Логотип" class="header__logo">
-            <hr class="header__line">
-            </div>
+            <img src="./images/logo.svg" alt="Логотип" class="header__logo">
         </header>
-        <main class="page__content">
-            <section class="profile">                
-                <figure class="profile__figure">
-                    <div class="profile__avatar">
-                        <img src="./images/Avatar.jpg" alt="Аватарка пользователя" class="profile__image">
-                    </div>
-                    <figcaption class="profile__info">
-                        <div class="profile__about">                            
-                            <div class="profile__info-name-cont">
-                                <h1 class="profile__info-name">Жак-Ив Кусто</h1>
-                                <button class="edit-button" type="button">
-                                    <img src="./images/pen.svg" alt="Кнопка закрытия" class="edit-button__pen">
-                                </button>  
-                            </div>
-                            <!--<p class="profile__info-activity">Исследователь океана</p>  -->                           
+        <main class="page__content">            
+            <section class="profile">
+                <img src="./images/Avatar.jpg" alt="Аватарка пользователя" class="profile__avatar">
+                <div class="profile__info">                        
+                        <div class="profile__info-name-cont">
+                            <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+                            <button aria-label="Кнопка изменить профиль" class="button button_type_edit" type="button">
+                            </button>  
                         </div>
-                        <p class="profile__info-activity">Исследователь океана</p>
-                    </figcaption>
-                    <button class="add-button" type="button">
-                        <img src="./images/plus.svg" alt ="Кнопка добавления информации" class="add-button__plus">
-                    </button>
-                </figure>
-                <div class="popup">
-                    <div class="popup__overlay"></div>
-                    <div class="popup__content">
-                        <h2 class="popup__title">Редактировать профиль</h2>
-                        <button class="popup__button-close" type="reset">
-                            +
-                        </button>                        
-                        <form class="input"> 
-                            <input type="text" class="popup__name input__text">
-                            <input type="text" class="popup__activity input__text">
-                            
-                            <button class="popup__button-save" type="submit">
-                                Добавить
-                            </button>
-                        </form>
-                    </div>
+                    <p class="profile__info-activity">Исследователь океана</p>
                 </div>
+                <button aria-label="Кнопка добавить" class="button button_type_add" type="button">
+                    
+                </button>
+                
             </section>
             
             <section class="elements">
-                <ul class="elements__list element">
+                <ul class="elements__list">
                     <li class="element__list-item">
                         <img src="./images/karachaevsk.jpg" alt="Природа Карачаевска" class="element__item">
                         <div class="element__list-text">
                             <h2 class="element__list-name">Карачаевск</h2>
-                            <img src="./images/like.svg" alt="Кнопка понравилось" class="element__list-like">
+                            <button aria-label="Кнопка нравится" class="button button_type_like" type="button">
+ 
+                            </button>                           
                         </div>
                     </li>
                     <li class="element__list-item">
                         <img src="./images/elbrus.jpg" alt="Природа Эльбруса" class="element__item">
                         <div class="element__list-text">
                             <h2 class="element__list-name">Гора Эльбрус</h2>
-                            <img src="./images/like.svg" alt="Кнопка понравилось" class="element__list-like">
+                            <button aria-label="Кнопка нравится" class="button button_type_like" type="button">
+ 
+                            </button> 
                         </div>
                     </li>
                     <li class="element__list-item">
                         <img src="./images/dombay.jpg" alt="Природа Домбая" class="element__item">
                         <div class="element__list-text">
                             <h2 class="element__list-name">Домбай</h2>
-                            <img src="./images/like.svg" alt="Кнопка понравилось" class="element__list-like">
+                            <button aria-label="Кнопка нравится" class="button button_type_like" type="button">
+ 
+                            </button> 
                         </div>
                     </li>
                     <li class="element__list-item">
                         <img src="./images/elbrus.jpg" alt="Природа Эльбруса" class="element__item">
                         <div class="element__list-text">
                             <h2 class="element__list-name">Гора Эльбрус</h2>
-                            <img src="./images/like.svg" alt="Кнопка понравилось" class="element__list-like">
+                            <button aria-label="Кнопка нравится" class="button button_type_like" type="button">
+ 
+                            </button> 
                         </div>
                     </li>
                     <li class="element__list-item">
                         <img src="./images/dombay.jpg" alt="Природа Домбая" class="element__item">
                         <div class="element__list-text">
                             <h2 class="element__list-name">Домбай</h2>
-                            <img src="./images/like.svg" alt="Кнопка понравилось" class="element__list-like">
+                            <button aria-label="Кнопка нравится" class="button button_type_like" type="button">
+ 
+                            </button> 
                         </div>
                     </li>
                     <li class="element__list-item">
                         <img src="./images/karachaevsk.jpg" alt="Природа Карачаевска" class="element__item">
                         <div class="element__list-text">
                             <h2 class="element__list-name">Карачаево-Черкессия</h2>
-                            <img src="./images/like.svg" alt="Кнопка понравилось" class="element__list-like">
+                            <button aria-label="Кнопка нравится" class="button button_type_like" type="button">
+ 
+                            </button> 
                         </div>
                     </li>
                 </ul>
@@ -104,6 +89,21 @@
             <footer class="footer">
                 <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
             </footer>
+            <div class="popup">    
+                <div class="popup__content">
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <button aria-label="Кнопка закрыть" class="button button_type_close" type="button">                            
+                    </button>                        
+                    <form class="popup__form" name="Форма изменения профиля"> 
+                        <input type="text" placeholder="Жак-Ив Кусто" class="popup__form-text popup__form-text_type_name" name="Введите имя">
+                        <input type="text" placeholder="Исследователь океана"  class="popup__form-text popup__form-text_type_activity" name="Введите род деятельности">
+                        
+                        <button aria-labelledby="Кнопка сохранить" class="button button_type_save" type="submit">
+                            Сохранить
+                        </button>
+                    </form>
+                </div>
+            </div>
 
         </main>      
 
