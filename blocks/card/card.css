@@ -1,11 +1,10 @@
-.element__list-item {
+.card {
+    list-style-type: none;
+    padding: 0;
     width: 100%;
     background-color: #fff;
     border-radius: 10px;
     box-sizing: border-box;
-    overflow: hidden;    
-    /*object-fit: cover;*/
+    overflow: hidden;
     border: none;
-    
-    
 }
