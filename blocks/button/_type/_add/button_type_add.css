@@ -9,7 +9,7 @@
     background-image: url(./../../../../images/plus.svg);
     object-fit: cover;
     background-repeat: no-repeat;
-    box-sizing: content-box;
+    box-sizing: border-box;
     padding: 0;
     background-position: center center;
 }
