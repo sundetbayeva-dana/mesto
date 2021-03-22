@@ -2,16 +2,14 @@
     margin: 45px auto 0;
     width: calc(100% - 2*200px);
     border: 1px solid rgba(84,84,84, .7);
-    /*border-bottom: 1px solid #545454;*/
     border-top: hidden;
     border-left-style: hidden;
     border-right-style: hidden;
-    opacity: .7;
 }
 
 @media screen and (max-width: 767px) {
     .header {
         width: 100%;
         margin: 28px 0 0;
-}
+    }
 }

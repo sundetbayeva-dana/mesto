@@ -4,15 +4,8 @@
     height: 24px;
     border: solid #fff 1px;
     align-self: center;
-    background: rgba(0, 0, 0, 0);
     margin: 0 10px 0 18px;
-    padding: 0;
-    background-image: url(./../../../../images/pen.svg);
-    object-fit: cover;
-    background-repeat: no-repeat;
-    box-sizing:border-box;
-    background-position: center center;
-
+    background-image: url(./../../../images/pen.svg);
 }
 @media screen and (max-width: 767px) {
     .button_type_edit {
@@ -20,8 +13,4 @@
         width: 18px;
         height: 18px;             
     }
-}
-.button_type_edit:hover {
-    opacity: .6;
-    cursor: pointer;
 }

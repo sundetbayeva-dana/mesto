@@ -4,8 +4,7 @@
     justify-content: space-between;    
 }
 @media screen and (max-width: 767px) {
-    .profile__info-name-cont {       
-        /*justify-content:flex-start;*/
+    .profile__info-name-cont {
         justify-content: center;
         width: 100%;
     }
