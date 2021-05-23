@@ -29,76 +29,38 @@
                 </button>
 
             </section>
-
+            
             <section class="elements">
                 <ul class="elements__list">
-                    <li class="card">
-                        <img src="./images/karachaevsk.jpg" alt="Природа Карачаевска" class="card__pic">
-                        <div class="card__text">
-                            <h2 class="card__name">Карачаевск</h2>
-                            <button aria-label="Кнопка нравится" class="button button_type_like" type="button">
-
+                    <template class="elements__list-template">
+                        <li class="card">
+                            <button aria-label="Кнопка удалить" class="button button_type_delete" type="button">
                             </button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img src="./images/elbrus.jpg" alt="Природа Эльбруса" class="card__pic">
-                        <div class="card__text">
-                            <h2 class="card__name">Гора Эльбрус</h2>
-                            <button aria-label="Кнопка нравится" class="button button_type_like" type="button">
-
-                            </button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img src="./images/dombay.jpg" alt="Природа Домбая" class="card__pic">
-                        <div class="card__text">
-                            <h2 class="card__name">Домбай</h2>
-                            <button aria-label="Кнопка нравится" class="button button_type_like" type="button">
-
-                            </button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img src="./images/elbrus.jpg" alt="Природа Эльбруса" class="card__pic">
-                        <div class="card__text">
-                            <h2 class="card__name">Гора Эльбрус</h2>
-                            <button aria-label="Кнопка нравится" class="button button_type_like" type="button">
-
-                            </button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img src="./images/dombay.jpg" alt="Природа Домбая" class="card__pic">
-                        <div class="card__text">
-                            <h2 class="card__name">Домбай</h2>
-                            <button aria-label="Кнопка нравится" class="button button_type_like" type="button">
-
-                            </button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img src="./images/karachaevsk.jpg" alt="Природа Карачаевска" class="card__pic">
-                        <div class="card__text">
-                            <h2 class="card__name">Карачаево-Черкессия</h2>
-                            <button aria-label="Кнопка нравится" class="button button_type_like" type="button">
-
-                            </button>
-                        </div>
-                    </li>
+                            <!--<button aria-label="Увеличить карточку" class="button button_type_card" type="button">
+                                <img class="card__pic">
+                            </button>-->
+                            <img class="card__pic">
+                            <div class="card__text">
+                                <h2 class="card__name"></h2>
+                                <button aria-label="Кнопка нравится" class="button button_type_like" type="button">
+                                </button>
+                            </div>
+                        </li>
+                    </template>
                 </ul>
+                
             </section>
             <footer class="footer">
                 <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
             </footer>
-            <div class="popup">
+            <div class="popup popup__profile">
                 
                 <div class="popup__content">
                     <button aria-label="Кнопка закрыть" class="button button_type_close" type="button">
                     </button>
                     <h2 class="popup__title">Редактировать профиль</h2>
                     
-                    <form class="popup__form" name="Форма изменения профиля">
+                    <form class="popup__form popup__form-profile" name="Форма изменения профиля">
                         <input type="text" placeholder="Жак-Ив Кусто"
                             class="popup__form-text popup__form-text_type_name" name="Введите имя">
                         <input type="text" placeholder="Исследователь океана"
@@ -110,6 +72,33 @@
                     </form>
                 </div>
             </div>
+            <div class="popup popup__place">                
+                <div class="popup__content">
+                    <button aria-label="Кнопка закрыть" class="button button_type_close" type="button">
+                    </button>
+                    <h2 class="popup__title">Новое место</h2>
+                    
+                    <form class="popup__form popup__form-place" name="Название формы добавления нового места">
+                        <input type="text" placeholder="Название"
+                            class="popup__form-text popup__form-text_type_name-pic" name="Введите название">
+                        <input type="text" placeholder="Ссылка на картинку"
+                            class="popup__form-text popup__form-text_type_link" name="Введите ссылку на картинку">
+
+                        <button class="button button_type_save" type="submit">
+                            Сохранить
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="popup popup__card">
+                <div class="popup__card-content">
+                    <button aria-label="Кнопка закрыть" class="button button_type_close-pic" type="button">
+                    </button>
+                    <img class="popup__card-pic">
+                    <p class="popup__card-picname"></p>
+                </div>
+            </div>
+            
         </main>
     </div>
     <script src="./scripts/index.js"></script>

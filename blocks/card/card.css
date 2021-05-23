@@ -7,4 +7,5 @@
     box-sizing: border-box;
     overflow: hidden;
     border: none;
+    position: relative;
 }

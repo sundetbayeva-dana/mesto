@@ -1,0 +1,6 @@
+.popup__card-pic {
+
+    object-fit: contain;
+    box-sizing: border-box;
+    height: 540px;
+}

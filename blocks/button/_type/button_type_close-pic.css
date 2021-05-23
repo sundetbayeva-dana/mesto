@@ -1,5 +1,4 @@
-
-.button_type_close {
+.button_type_close-pic {
     position: absolute;
     right: -40px;
     top: -40px;
@@ -9,8 +8,9 @@
     background-image: url(./../../../images/close.svg);
 
 }
+
 @media screen and (max-width: 767px) {
-    .button_type_close {
+    .button_type_close-pic {
         right: 5px;
         top: -50px;
         width: 26px;
