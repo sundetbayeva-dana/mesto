@@ -21,21 +21,28 @@ const elementsList = document.querySelector('.elements__list');
 const cardTemplate = document.querySelector('.elements__list-template').content;
 const popupCard = document.querySelector('.popup__card');
 
-//
+
 const closeButtonCard = popupCard.querySelector('.button_type_close-pic');
+const picName = popupCard.querySelector('.popup__card-picname');
 
 
 function openPopup(modal) {
-  modal.classList.add('popup_opened');      
-    nameInput.value = profileName.textContent;
-    activityInput.value = profileActivity.textContent;
+  modal.classList.add('popup_opened');
+}
+
+function PopupProfileAddNameActivity() {
+  nameInput.value = profileName.textContent;
+  activityInput.value = profileActivity.textContent;
 }
 
 function closePopup(modal) {
   modal.classList.remove('popup_opened');
 }
 
-editButtonProfile.addEventListener('click', () => openPopup(popupProfile));
+editButtonProfile.addEventListener('click', () => {
+  openPopup(popupProfile);
+  PopupProfileAddNameActivity()
+});
 addButtonPlace.addEventListener('click', () => openPopup(popupPlace));
 closeButtonProfile.addEventListener('click', () => closePopup(popupProfile));
 closeButtonPlace.addEventListener('click', () => closePopup(popupPlace));
@@ -45,10 +52,8 @@ function onCardLike(event) {
   event.target.classList.toggle('button_type_like-active');
 }
 
-
-
 function deleteCard(event) {
-  event.target.closest(".card").remove();
+  event.target.closest('.card').remove();
 }
 function createCard(cardData) {
   const card = cardTemplate.cloneNode(true);
@@ -59,13 +64,12 @@ function createCard(cardData) {
 
   titleElement.textContent = cardData.name;
   imageElement.src = cardData.link;
+  imageElement.alt = cardData.name;
   likeIconElement.addEventListener('click', onCardLike);
   imageElement.addEventListener('click', onCardImagePopup);
   removeIconElement.addEventListener('click', deleteCard);
 
-
   return card;
-
 }
 
 
@@ -127,7 +131,7 @@ function formSubmitHandlerProfile (event) {
 }
 
 formElementProfile.addEventListener('submit', formSubmitHandlerProfile);
-let picName = popupCard.querySelector('.popup__card-picname');
+
 
 function onCardImagePopup(event) {
   let pic = popupCard.querySelector('.popup__card-pic');
