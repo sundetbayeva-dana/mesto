@@ -1,5 +1,5 @@
 //переменные использующиеся в попапе пользователя
-let popupProfile = document.querySelector('.popup__profile'); //переменная попапа пользователя
+let popupProfile = document.querySelector('.popup-profile'); //переменная попапа пользователя
 let editButtonProfile = document.querySelector('.button_type_edit'); //переменная открытия попапа пользователя
 let closeButtonProfile = popupProfile.querySelector('.button_type_close'); //переменная закрытия попапа пользователя
 let formElementProfile = document.querySelector('.popup__form') //переменная формы попапа пользователя
@@ -8,7 +8,7 @@ let profileActivity = document.querySelector('.profile__info-activity'); //пе�
 let nameInput = document.querySelector('.popup__form-text_type_name'); //переменная имени пользователя в попапе 
 let activityInput = document.querySelector('.popup__form-text_type_activity'); //переменная деятельности пользователя в попапе
 //переменные использующиеся  в попапе места
-let popupPlace = document.querySelector('.popup__place'); //переменная попапа места
+let popupPlace = document.querySelector('.popup-place'); //переменная попапа места
 let addButtonPlace = document.querySelector('.button_type_add') //переменная открытия попапа места
 let closeButtonPlace = popupPlace.querySelector('.button_type_close') //переменная закрытия попапа места
 //переменные для добавления карточек
@@ -19,11 +19,11 @@ let formElementItemPic = formElementPlace.querySelector('.popup__form-text_type_
 //переменные для загрузки существующих карточек 
 const elementsList = document.querySelector('.elements__list');
 const cardTemplate = document.querySelector('.elements__list-template').content;
-const popupCard = document.querySelector('.popup__card');
+const popupCard = document.querySelector('.popup-card');
 
 
 const closeButtonCard = popupCard.querySelector('.button_type_close-pic');
-const picName = popupCard.querySelector('.popup__card-picname');
+const picName = popupCard.querySelector('.popup-card__picname');
 
 
 function openPopup(modal) {
@@ -134,7 +134,7 @@ formElementProfile.addEventListener('submit', formSubmitHandlerProfile);
 
 
 function onCardImagePopup(event) {
-  let pic = popupCard.querySelector('.popup__card-pic');
+  let pic = popupCard.querySelector('.popup-card__pic');
   pic.src = event.target.src;
   openPopup(popupCard);
   //console.log(event.target)
