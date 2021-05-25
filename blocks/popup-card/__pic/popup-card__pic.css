@@ -1,4 +1,4 @@
-.popup__card-pic {
+.popup-card__pic {
     object-fit: contain;
     box-sizing: border-box;
     max-width: 75vw;
