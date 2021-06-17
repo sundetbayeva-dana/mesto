@@ -1,7 +1,6 @@
 //переменные использующиеся в попапе пользователя
 const popupProfile = document.querySelector('.popup-profile'); //попап пользователя
 const editButtonProfile = document.querySelector('.button_type_edit'); //кнопка открытия попапа пользователя
-const closeButtonProfile = popupProfile.querySelector('.button_type_close'); //кнопка закрытия попапа пользователя
 const formElementProfile = document.querySelector('.popup__form') //форма попапа пользователя
 const profileName = document.querySelector('.profile__info-name'); //имя пользователя
 const profileActivity = document.querySelector('.profile__info-activity'); //деятельности пользователя
@@ -10,7 +9,7 @@ const activityInput = document.querySelector('.popup__form-text_type_activity');
 //переменные использующиеся  в попапе места
 const popupPlace = document.querySelector('.popup-place'); //попап места
 const addButtonPlace = document.querySelector('.button_type_add'); //кнопка открытия попапа места
-const closeButtonPlace = popupPlace.querySelector('.button_type_close'); //кнопка закрытия попапа места
+
 //переменные для добавления карточек
 const formElementPlace = popupPlace.querySelector('.popup__form-place');
 const formElementItemName = formElementPlace.querySelector('.popup__form-text_type_name-pic');
@@ -21,11 +20,13 @@ const elementsList = document.querySelector('.elements__list');
 const cardTemplate = document.querySelector('.elements__list-template').content;
 const popupCard = document.querySelector('.popup-card');
 
-const closeButtonCard = popupCard.querySelector('.button_type_close-pic');
+
 const pictureName = popupCard.querySelector('.popup-card__picname');
+//const closeButton = document.querySelectorAll('.button_type_close');
 
-
-
+const popups = Array.from(document.querySelectorAll('.popup'));
+const overlayClose = Array.from(document.querySelectorAll('.popup__overlay'));
+const closeButton = Array.from(document.querySelectorAll('.button_type_close'));
 
 
 function openPopup(modal) {
@@ -91,16 +92,11 @@ function handlerFormProfileSubmit(event) {
   closePopup(popupProfile);
 }
 
-
-////////////////////////////
-
 const showError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add('popup__form-text-error');
   errorElement.textContent = errorMessage;
   errorElement.classList.add('popup__form-text-error_active');
-  
-  
 }
 
 const hideError = (formElement, inputElement) => {
@@ -124,7 +120,7 @@ const checkInputValidity = (formElement, inputElement) => {
 
 
 const setEventListeners = (formElement) => {
-  const inputList =  Array.from(formElement.querySelectorAll('.popup__form-text'));
+  const inputList = Array.from(formElement.querySelectorAll('.popup__form-text'));
   const buttonElement =  formElement.querySelector('.button_type_save');
   toggleButtonState(inputList, buttonElement)
   inputList.forEach((inputElement) => {
@@ -133,6 +129,7 @@ const setEventListeners = (formElement) => {
       toggleButtonState(inputList, buttonElement)
     })
   })
+
 }
 
 
@@ -151,7 +148,7 @@ function enableValidation() {
  function hasInvalidInput(inputList) {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
-  })  
+  })
 }
 
 function toggleButtonState(inputList, buttonElement) {
@@ -164,93 +161,33 @@ function toggleButtonState(inputList, buttonElement) {
     buttonElement.removeAttribute('disabled');
   }
 }
-////////////////////////////
 
-
-/*
-function enableValidation(config) {
-  const form = document.querySelector(config.form);
-
-  form.addEventListener('submit', handleFormSubmit);
-  form.addEventListener('input', (event) => handleFormInput(event, config));
-}
-
-function handleFormSubmit(event) {
-  event.preventDefault();
-  const form = event.currentTarget;
-  const isValid = form.checkValidity();
-
-  if (isValid) {
-    alert ('Форма валидна');
-    form.reset();
-  }
-  else {
-    alert('Форма невалидна')
-  }
-}
-function handleFormInput(event, config) {
-  const input = event.target;
-  const form = event.currentTarget;
-
-  setCustomError(input, config);  
-  setSubmitButtonState(form, config);
-}
-
-function setCustomError(input, config) {
-  const validity = input.validity;
-
-  input.setCustomValidity('');
-
-  if (validity.tooShort || validity.tooLong) {
-    const currentLength = input.value.length;
-    const min = input.getAttribute('minlength');
-    const max = input.getAttribute('maxlength');  
-    input.setCustomValidity(
-      `Строка имеет неверную длину. Введено ${currentLength}, а должно быть от ${min} до ${max}`
-    );
-  }
-
-  if (validity.typeMismatch) {
-    input.setCustomValidity(config.mismatchErrorMessage);
-  }
-
-}
-
-function setFieldError(input) {
-  const span = document.querySelector(`.${name-place.id}-error`);
-  span.textContent = input.validationMessage;
-}
-
-function setSubmitButtonState(form, config) {
-  const button = form.querySelector(config.submitButton);
-  const isValid = form.checkValidity();
-
-  if (isValid) {
-    button.classList.add(config.popupIsValid);
-    button.classList.remove(config.popupIsInvalid);
-    button.removeAttribute('disabled');
-  } else {
-    button.classList.remove(config.popupIsValid);
-    button.classList.add(config.popupIsInvalid);
-    button.setAttribute('disabled', 'disabled')
+function handleEscUp(event) {
+  if (event.key === 'Escape') {
+    popups.forEach((popupElement) => {
+      closePopup(popupElement);
+    })    
   }
 }
 
-const configs = [
-  {
-    form: '.popup__form-place[name="place"]',
-    submitButton: '.button_type_save[name="place"]',
-    mismatchErrorMessage: 'Вы пропустили это поле',
-    popupIsValid: 'popup__button_valid',
-    popupIsInvalid: 'button_type_invalid'
-  
-  }
-];
-configs.forEach(config => enableValidation(config));
-*/
+const setButtonProfile = () => {
+  const buttonElement =  popupProfile.querySelector('.button_type_save');
+  const inputList =  Array.from(popupProfile.querySelectorAll('.popup__form-text'));
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener('input', function() {
+      if (hasInvalidInput(inputList)) {
+        buttonElement.classList.add('button_type_invalid');
+      } else {
+        buttonElement.classList.remove('button_type_invalid');
+      }
+    });
+  });
+}
+
+setButtonProfile();
 
 
-////////////////
+
 initialCards.forEach((card) => {
   const cardElement = createCard(card);
   elementsList.append(cardElement);
@@ -261,24 +198,18 @@ editButtonProfile.addEventListener('click', () => {
   addProfileData();
 });
 addButtonPlace.addEventListener('click', () => openPopup(popupPlace));
-closeButtonProfile.addEventListener('click', () => closePopup(popupProfile));
-closeButtonPlace.addEventListener('click', () => closePopup(popupPlace));
-closeButtonCard.addEventListener('click', () => closePopup(popupCard));
+
+
+popups.forEach((popupElement) => {
+  overlayClose.forEach((overlayElement) => {
+    overlayElement.addEventListener('click', () => closePopup(popupElement));
+  });
+  closeButton.forEach((overlayElement) => {
+    overlayElement.addEventListener('click', () => closePopup(popupElement));
+  })  
+})
 
 formElementPlace.addEventListener('submit', handleFormCardSubmit);
-
 formElementProfile.addEventListener('submit', handlerFormProfileSubmit);
-
-
-const setButtonProfile = () => {
-  const buttonElement =  popupProfile.querySelector('.button_type_save');
-  const inputList =  Array.from(popupProfile.querySelectorAll('.popup__form-text'));
-  inputList.forEach((inputElement) => {
-    inputElement.addEventListener('input', function() {
-      toggleButtonState(inputList, buttonElement)
-    });
-  });
-}
-
-setButtonProfile();
+document.addEventListener('keydown', handleEscUp);
 
