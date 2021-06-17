@@ -87,6 +87,89 @@ function handlerFormProfileSubmit(event) {
   closePopup(popupProfile);
 }
 
+function enableValidation(config) {
+  const form = document.querySelector(config.form);
+
+  form.addEventListener('submit', handleFormSubmit);
+  form.addEventListener('input', (event) => handleFormInput(event, config));
+}
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const isValid = form.checkValidity();
+
+  if (isValid) {
+    alert ('Форма валидна');
+    form.reset();
+  }
+  else {
+    alert('Форма невалидна')
+  }
+}
+function handleFormInput(event, config) {
+  const input = event.target;
+  const form = event.currentTarget;
+
+  setCustomError(input, config);  
+  setSubmitButtonState(form, config);
+}
+
+function setCustomError(input, config) {
+  const validity = input.validity;
+
+  input.setCustomValidity('');
+
+  if (validity.tooShort || validity.tooLong) {
+    const currentLength = input.value.length;
+    const min = input.getAttribute('minlength');
+    const max = input.getAttribute('maxlength');  
+    input.setCustomValidity(
+      `Строка имеет неверную длину. Введено ${currentLength}, а должно быть от ${min} до ${max}`
+    );
+  }
+
+  if (validity.typeMismatch) {
+    input.setCustomValidity(config.mismatchErrorMessage);
+  }
+
+}
+
+function setFieldError(input) {
+  const span = document.querySelector(`.${name-place.id}-error`);
+  span.textContent = input.validationMessage;
+}
+
+function setSubmitButtonState(form, config) {
+  const button = form.querySelector(config.submitButton);
+  const isValid = form.checkValidity();
+
+  if (isValid) {
+    button.classList.add(config.popupIsValid);
+    button.classList.remove(config.popupIsInvalid);
+    button.removeAttribute('disabled');
+  } else {
+    button.classList.remove(config.popupIsValid);
+    button.classList.add(config.popupIsInvalid);
+    button.setAttribute('disabled', 'disabled')
+  }
+}
+
+/*function validatePasswordMatch(form, config) {
+  const inputPassword
+}*/
+const configs = [
+  {
+    form: '.popup__form-place[name="place"]',
+    submitButton: '.button_type_save[name="place"]',
+    mismatchErrorMessage: 'Вы пропустили это поле',
+    popupIsValid: 'popup__button_valid',
+    popupIsInvalid: 'button_type_invalid'
+  
+  }
+];
+configs.forEach(config => enableValidation(config));
+
 initialCards.forEach((card) => {
   const cardElement = createCard(card);
   elementsList.append(cardElement);

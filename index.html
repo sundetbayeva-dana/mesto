@@ -56,7 +56,7 @@
                     </button>
                     <h2 class="popup__title">Редактировать профиль</h2>
                     
-                    <form class="popup__form popup__form-profile" name="edit form">
+                    <form class="popup__form popup__form-profile" name="profile" novalidate>
                         <input type="text" placeholder="Имя"
                             class="popup__form-text popup__form-text_type_name" name="name-profile">
                         <input type="text" placeholder="Занятие"
@@ -74,12 +74,14 @@
                     </button>
                     <h2 class="popup__title">Новое место</h2>
                     
-                    <form class="popup__form popup__form-place" name="Название формы добавления нового места">
+                    <form class="popup__form popup__form-place" name="place">
                         <input type="text" placeholder="Название"
-                            class="popup__form-text popup__form-text_type_name-pic" name="name-place">
-                        <input type="text" placeholder="Ссылка на картинку"
-                            class="popup__form-text popup__form-text_type_link" name="link-place">
-                        <button class="button button_type_save" type="submit">
+                            class="popup__form-text popup__form-text_type_name-pic" name="name-place" id="name-place" minlength="2" maxlength="30" required>
+                        <span id="name-place-error" class="error"></span>
+                        <input type="url" placeholder="Ссылка на картинку"
+                            class="popup__form-text popup__form-text_type_link" name="link-place" id="link-place" required>
+                        <span id="link-place-error" class="error"></span>
+                        <button class="button button_type_save button_type_invalid" type="submit" name="place">
                             Сохранить
                         </button>
                     </form>
