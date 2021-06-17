@@ -56,11 +56,11 @@
                     </button>
                     <h2 class="popup__title">Редактировать профиль</h2>
                     
-                    <form class="popup__form popup__form-profile" name="profile" novalidate>
+                    <form class="popup__form popup__form-profile" name="profile">
                         <input type="text" placeholder="Имя"
-                            class="popup__form-text popup__form-text_type_name" name="name-profile">
+                            class="popup__form-text popup__form-text_type_name" name="name-profile" minlength="2" maxlength="40" required>
                         <input type="text" placeholder="Занятие"
-                            class="popup__form-text popup__form-text_type_activity" name="description-profile">
+                            class="popup__form-text popup__form-text_type_activity" name="description-profile" minlength="2" maxlength="200" required>
 
                         <button class="button button_type_save" type="submit">
                             Сохранить
@@ -74,13 +74,13 @@
                     </button>
                     <h2 class="popup__title">Новое место</h2>
                     
-                    <form class="popup__form popup__form-place" name="place">
+                    <form class="popup__form popup__form-place" name="place" novalidate>
                         <input type="text" placeholder="Название"
                             class="popup__form-text popup__form-text_type_name-pic" name="name-place" id="name-place" minlength="2" maxlength="30" required>
-                        <span id="name-place-error" class="error"></span>
+                        <span class="popup__form-text-error name-place-error"></span>
                         <input type="url" placeholder="Ссылка на картинку"
                             class="popup__form-text popup__form-text_type_link" name="link-place" id="link-place" required>
-                        <span id="link-place-error" class="error"></span>
+                        <span id="error" class="popup__form-text_type_link-error"></span>
                         <button class="button button_type_save button_type_invalid" type="submit" name="place">
                             Сохранить
                         </button>
