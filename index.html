@@ -51,16 +51,17 @@
                 <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
             </footer>
             <div class="popup popup-profile">
+                <div class="popup__overlay"></div>
                 <div class="popup__content">
                     <button aria-label="Кнопка закрыть" class="button button_type_close" type="button">
                     </button>
                     <h2 class="popup__title">Редактировать профиль</h2>
                     
-                    <form class="popup__form popup__form-profile" name="edit form">
+                    <form class="popup__form popup__form-profile" name="profile">
                         <input type="text" placeholder="Имя"
-                            class="popup__form-text popup__form-text_type_name" name="name-profile">
+                            class="popup__form-text popup__form-text_type_name" name="name-profile" minlength="2" maxlength="40" required>
                         <input type="text" placeholder="Занятие"
-                            class="popup__form-text popup__form-text_type_activity" name="description-profile">
+                            class="popup__form-text popup__form-text_type_activity" name="description-profile" minlength="2" maxlength="200" required>
 
                         <button class="button button_type_save" type="submit">
                             Сохранить
@@ -68,26 +69,30 @@
                     </form>
                 </div>
             </div>
-            <div class="popup popup-place">            
+            <div class="popup popup-place">
+                <div class="popup__overlay"></div>
                 <div class="popup__content">
                     <button aria-label="Кнопка закрыть" class="button button_type_close" type="button">
                     </button>
                     <h2 class="popup__title">Новое место</h2>
                     
-                    <form class="popup__form popup__form-place" name="Название формы добавления нового места">
+                    <form class="popup__form popup__form-place" name="place" novalidate>
                         <input type="text" placeholder="Название"
-                            class="popup__form-text popup__form-text_type_name-pic" name="name-place">
-                        <input type="text" placeholder="Ссылка на картинку"
-                            class="popup__form-text popup__form-text_type_link" name="link-place">
-                        <button class="button button_type_save" type="submit">
+                            class="popup__form-text popup__form-text_type_name-pic" name="name-place" id="name-place" required minlength="2" maxlength="30" >
+                        <span class="popup__form-text-error name-place-error"></span>
+                        <input type="url" placeholder="Ссылка на картинку"
+                            class="popup__form-text popup__form-text_type_link" name="link-place" id="link-place" required>
+                        <span class="popup__form-text-error link-place-error"></span>
+                        <button class="button button_type_save" type="submit" name="place">
                             Сохранить
                         </button>
                     </form>
                 </div>
             </div>
             <div class="popup popup-card">
+                <div class="popup__overlay"></div>
                 <div class="popup-card__content">
-                    <button aria-label="Кнопка закрыть" class="button button_type_close-pic" type="button">
+                    <button aria-label="Кнопка закрыть" class="button button_type_close" type="button">
                     </button>
                     <img class="popup-card__pic">
                     <p class="popup-card__picname"></p>
@@ -96,7 +101,8 @@
             
         </main>
     </div>
-    <script src="scripts/initial-сards.js"></script>
+    <script src="./scripts/validate.js"></script>
+    <script src="./scripts/initial-сards.js"></script>
     <script src="./scripts/index.js"></script>
 </body>
 </html>

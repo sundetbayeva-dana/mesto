@@ -1,7 +1,6 @@
 //переменные использующиеся в попапе пользователя
 const popupProfile = document.querySelector('.popup-profile'); //попап пользователя
 const editButtonProfile = document.querySelector('.button_type_edit'); //кнопка открытия попапа пользователя
-const closeButtonProfile = popupProfile.querySelector('.button_type_close'); //кнопка закрытия попапа пользователя
 const formElementProfile = document.querySelector('.popup__form') //форма попапа пользователя
 const profileName = document.querySelector('.profile__info-name'); //имя пользователя
 const profileActivity = document.querySelector('.profile__info-activity'); //деятельности пользователя
@@ -10,7 +9,7 @@ const activityInput = document.querySelector('.popup__form-text_type_activity');
 //переменные использующиеся  в попапе места
 const popupPlace = document.querySelector('.popup-place'); //попап места
 const addButtonPlace = document.querySelector('.button_type_add'); //кнопка открытия попапа места
-const closeButtonPlace = popupPlace.querySelector('.button_type_close'); //кнопка закрытия попапа места
+
 //переменные для добавления карточек
 const formElementPlace = popupPlace.querySelector('.popup__form-place');
 const formElementItemName = formElementPlace.querySelector('.popup__form-text_type_name-pic');
@@ -21,8 +20,9 @@ const elementsList = document.querySelector('.elements__list');
 const cardTemplate = document.querySelector('.elements__list-template').content;
 const popupCard = document.querySelector('.popup-card');
 
-const closeButtonCard = popupCard.querySelector('.button_type_close-pic');
+
 const pictureName = popupCard.querySelector('.popup-card__picname');
+
 
 function openPopup(modal) {
   modal.classList.add('popup_opened');
@@ -87,6 +87,15 @@ function handlerFormProfileSubmit(event) {
   closePopup(popupProfile);
 }
 
+function handleEscUp(event) {
+  if (event.key === 'Escape') {
+    popups.forEach((popupElement) => {
+      closePopup(popupElement);
+    })    
+  }
+}
+
+
 initialCards.forEach((card) => {
   const cardElement = createCard(card);
   elementsList.append(cardElement);
@@ -97,15 +106,18 @@ editButtonProfile.addEventListener('click', () => {
   addProfileData();
 });
 addButtonPlace.addEventListener('click', () => openPopup(popupPlace));
-closeButtonProfile.addEventListener('click', () => closePopup(popupProfile));
-closeButtonPlace.addEventListener('click', () => closePopup(popupPlace));
-closeButtonCard.addEventListener('click', () => closePopup(popupCard));
+
+
+popups.forEach((popupElement) => {
+  overlayClose.forEach((overlayElement) => {
+    overlayElement.addEventListener('click', () => closePopup(popupElement));
+  });
+  closeButton.forEach((overlayElement) => {
+    overlayElement.addEventListener('click', () => closePopup(popupElement));
+  })  
+})
 
 formElementPlace.addEventListener('submit', handleFormCardSubmit);
-
 formElementProfile.addEventListener('submit', handlerFormProfileSubmit);
-
-
-
-
+document.addEventListener('keydown', handleEscUp);
 
