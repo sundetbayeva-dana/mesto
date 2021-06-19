@@ -26,6 +26,7 @@ const pictureName = popupCard.querySelector('.popup-card__picname');
 
 function openPopup(modal) {
   modal.classList.add('popup_opened');
+  document.addEventListener('keydown', handleEscUp);;
 }
 
 function addProfileData() {
@@ -35,6 +36,7 @@ function addProfileData() {
 
 function closePopup(modal) {
   modal.classList.remove('popup_opened');
+  document.removeEventListener('keydown', handleEscUp); 
 }
 
 function handleLikeCardClick(event) {
@@ -90,10 +92,12 @@ function handlerFormProfileSubmit(event) {
 function handleEscUp(event) {
   if (event.key === 'Escape') {
     popups.forEach((popupElement) => {
-      closePopup(popupElement);
+      if (popupElement.classList.contains('popup_opened')) {  
+        closePopup(popupElement);        
+      }
     })    
   }
-}
+}  
 
 
 initialCards.forEach((card) => {
@@ -119,5 +123,3 @@ popups.forEach((popupElement) => {
 
 formElementPlace.addEventListener('submit', handleFormCardSubmit);
 formElementProfile.addEventListener('submit', handlerFormProfileSubmit);
-document.addEventListener('keydown', handleEscUp);
-
