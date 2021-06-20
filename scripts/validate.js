@@ -3,12 +3,11 @@ const overlayClose = Array.from(document.querySelectorAll('.popup__overlay'));
 const closeButton = Array.from(document.querySelectorAll('.button_type_close'));
 
 
-
 const showError = (formElement, inputElement, errorMessage, config) => {
-    const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.add(config.inputErrorClass);
-    errorElement.textContent = errorMessage;
-    errorElement.classList.add(config.errorClass);
+  const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.add(config.inputErrorClass);
+  errorElement.textContent = errorMessage;
+  errorElement.classList.add(config.errorClass);
 }
   
 const hideError = (formElement, inputElement, config) => {
@@ -19,15 +18,12 @@ const hideError = (formElement, inputElement, config) => {
 };
   
 const checkInputValidity = (formElement, inputElement, config) => {
-
   if (!inputElement.validity.valid) {
     showError(formElement, inputElement, inputElement.validationMessage, config);
-    } else {    
+  } else {    
     hideError(formElement, inputElement, config) 
-  };
-  
+  };  
 };
-  
   
 const setEventListeners = (formElement, config) => {
   const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
@@ -39,10 +35,7 @@ const setEventListeners = (formElement, config) => {
       toggleButtonState(inputList, buttonElement, config)
     })
   })
-
 }
-
-
 
 function enableValidation(config) {
   let formList = Array.from(document.querySelectorAll(config.formSelector));
@@ -53,16 +46,17 @@ function enableValidation(config) {
     setEventListeners(formElement, config);
   })
   }
-  enableValidation({
-    formSelector: '.popup__form',
-    inputSelector: '.popup__form-text',
-    submitButtonSelector: '.button_type_save',
-    inactiveButtonClass: 'button_type_invalid',
-    inputErrorClass: 'popup__form-text-error',
-    errorClass: 'popup__form-text-error_active'
-  });
 
-  function hasInvalidInput(inputList) {
+enableValidation({
+  formSelector: '.popup__form',
+  inputSelector: '.popup__form-text',
+  submitButtonSelector: '.button_type_save',
+  inactiveButtonClass: 'button_type_invalid',
+  inputErrorClass: 'popup__form-text-error',
+  errorClass: 'popup__form-text-error_active'
+});
+
+function hasInvalidInput(inputList) {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
   })
@@ -71,12 +65,13 @@ function enableValidation(config) {
 function toggleButtonState(inputList, buttonElement, config) {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(config.inactiveButtonClass);
-    buttonElement.setAttribute('disabled', 'disabled')
+    buttonElement.setAttribute('disabled', 'disabled');
   }
   else {
     buttonElement.classList.remove(config.inactiveButtonClass);
     buttonElement.removeAttribute('disabled');
   }
 }
+
 
 

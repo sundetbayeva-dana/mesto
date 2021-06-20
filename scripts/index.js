@@ -20,9 +20,7 @@ const elementsList = document.querySelector('.elements__list');
 const cardTemplate = document.querySelector('.elements__list-template').content;
 const popupCard = document.querySelector('.popup-card');
 
-
 const pictureName = popupCard.querySelector('.popup-card__picname');
-
 
 function openPopup(modal) {
   modal.classList.add('popup_opened');
@@ -77,16 +75,16 @@ function handleFormCardSubmit(event) {
   const imageSrc = formElementItemPic.value;
   const cardElement = createCard({name: name,link: imageSrc});
   elementsList.prepend(cardElement);  
-
   closePopup(popupPlace);
   formElementPlace.reset();
 };
 
 function handlerFormProfileSubmit(event) {
-  event.preventDefault();
+  event.preventDefault();  
   profileName.textContent = nameInput.value;
   profileActivity.textContent = activityInput.value;
   closePopup(popupProfile);
+  formElementProfile.reset();
 }
 
 function handleEscUp(event) {
@@ -97,8 +95,7 @@ function handleEscUp(event) {
       }
     })    
   }
-}  
-
+}
 
 initialCards.forEach((card) => {
   const cardElement = createCard(card);
@@ -109,8 +106,6 @@ editButtonProfile.addEventListener('click', () => {
   openPopup(popupProfile);
   addProfileData();
 });
-addButtonPlace.addEventListener('click', () => openPopup(popupPlace));
-
 
 popups.forEach((popupElement) => {
   overlayClose.forEach((overlayElement) => {
@@ -123,3 +118,7 @@ popups.forEach((popupElement) => {
 
 formElementPlace.addEventListener('submit', handleFormCardSubmit);
 formElementProfile.addEventListener('submit', handlerFormProfileSubmit);
+addButtonPlace.addEventListener('click', () => openPopup(popupPlace))
+
+  
+
