@@ -26,9 +26,3 @@
     border: solid #6ba5c2;
     opacity: 1;
 }
-
-.popup__form-text:invalid {
-    border-bottom: 1px solid #FF0000;
-}
-
-

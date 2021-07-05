@@ -1,35 +1,7 @@
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
-const popupCard = document.querySelector('.popup-card');
-const pic = popupCard.querySelector('.popup-card__pic');
-const pictureName = popupCard.querySelector('.popup-card__picname');
-
 import { handleEscUp } from './index.js'
+const popupShowPicture = document.querySelector('.popup-card');
+const picture = popupShowPicture.querySelector('.popup-card__pic');
+const pictureName = popupShowPicture.querySelector('.popup-card__picname');
 
 class Card {    
   constructor(data, cardSelector) {
@@ -46,14 +18,15 @@ class Card {
   generateCard() {
     this._element = this._getTemplate();
     this._element.querySelector('.card__name').textContent = this._name;
-    this._element.querySelector('.card__pic').src = this._link; 
+    this._element.querySelector('.card__pic').src = this._link;
+    this._element.querySelector('.card__pic').alt = this._name;
     this._setEventListeners();
     return this._element;
   }
 
   _setEventListeners() {
     this._element.querySelector('.card__pic').addEventListener('click', () => {
-      this._handleOpenPopupCard();
+      this._handleOpenpopupShowPicture();
       document.addEventListener('keydown', handleEscUp);
     })
 
@@ -66,19 +39,21 @@ class Card {
     })
   }
 
-  _handleOpenPopupCard() {    
-    pic.src = this._link;
-    popupCard.classList.add('popup_opened');
-    pic.alt = this._name;
+  _handleOpenpopupShowPicture() {    
+    picture.src = this._link;
+    popupShowPicture.classList.add('popup_opened');
+    picture.alt = this._name;
     pictureName.textContent = this._name;
   }
   
   _handleDeleteCardClick = () => {
     this._element.remove();
+    this._element = null;
   }
 
   _handleLikeCardClick = () => {
     this._element.querySelector('.button_type_like').classList.toggle('button_type_like-active')
   }
 }
-export { Card, initialCards }
+
+export default Card
