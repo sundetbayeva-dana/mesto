@@ -1,10 +1,10 @@
 import FormValidator  from './FormValidator.js';
-import initialCards from './constants.js';
 import Card from './Card.js';
+import initialCards from './constants.js';
 
 const popupProfile = document.querySelector('.popup-profile'); //попап пользователя
 const editProfileButton = document.querySelector('.button_type_edit'); //кнопка открытия попапа пользователя
-const profileFormElement = document.querySelector('.popup__form') //форма попапа пользователя
+const profileFormElement = popupProfile.querySelector('.popup__form-profile') //форма попапа пользователя
 const profileName = document.querySelector('.profile__info-name'); //имя пользователя
 const profileActivity = document.querySelector('.profile__info-activity'); //деятельности пользователя
 const nameInput = document.querySelector('.popup__form-text_type_name'); //имя пользователя в инпуте 
@@ -18,8 +18,6 @@ const itemNameFormElement = placeFormElement.querySelector('.popup__form-text_ty
 const ItemPicFormElement = placeFormElement.querySelector('.popup__form-text_type_link');
 
 const popups = Array.from(document.querySelectorAll('.popup'));
-const popupOverlays = Array.from(document.querySelectorAll('.popup__overlay'));
-const closeButton = Array.from(document.querySelectorAll('.button_type_close'));
 
 const elementsList = document.querySelector('.elements__list');
 
@@ -92,14 +90,13 @@ editProfileButton.addEventListener('click', () => {
 });
 
 popups.forEach((popupElement) => {
-  popupOverlays.forEach((itemElement) => {
-    itemElement.addEventListener('click', () => closePopup(popupElement));
-  });
-  closeButton.forEach((itemElement) => {
-    itemElement.addEventListener('click', () => closePopup(popupElement));
+  popupElement.querySelector('.popup__overlay').addEventListener('click', () => {
+    closePopup(popupElement);
+  })
+  popupElement.querySelector('.button_type_close').addEventListener('click', () => {
+    closePopup(popupElement);
   })
 })
-
 
 placeFormElement.addEventListener('submit', handleFormCardSubmit);
 profileFormElement.addEventListener('submit', handlerFormProfileSubmit);

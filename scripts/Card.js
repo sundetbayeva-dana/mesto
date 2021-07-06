@@ -17,9 +17,11 @@ class Card {
 
   generateCard() {
     this._element = this._getTemplate();
-    this._element.querySelector('.card__name').textContent = this._name;
-    this._element.querySelector('.card__pic').src = this._link;
-    this._element.querySelector('.card__pic').alt = this._name;
+    const cardElementName = this._element.querySelector('.card__name');
+    const cardElementLink = this._element.querySelector('.card__pic');
+    cardElementName.textContent = this._name;
+    cardElementLink.src = this._link;    
+    cardElementLink.alt = this._name;
     this._setEventListeners();
     return this._element;
   }
