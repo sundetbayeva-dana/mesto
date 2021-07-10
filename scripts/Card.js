@@ -1,4 +1,4 @@
-import { handleEscUp } from './index.js'
+import { handleEscDown } from './index.js'
 const popupShowPicture = document.querySelector('.popup-card');
 const picture = popupShowPicture.querySelector('.popup-card__pic');
 const pictureName = popupShowPicture.querySelector('.popup-card__picname');
@@ -29,7 +29,7 @@ class Card {
   _setEventListeners() {
     this._element.querySelector('.card__pic').addEventListener('click', () => {
       this._handleOpenpopupShowPicture();
-      document.addEventListener('keydown', handleEscUp);
+      document.addEventListener('keydown', handleEscDown);
     })
 
     this._element.querySelector('.button_type_delete').addEventListener('click', () => {

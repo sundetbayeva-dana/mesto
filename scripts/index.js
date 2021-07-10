@@ -35,15 +35,12 @@ const cardFormValidator = new FormValidator(config, placeFormElement);
 
 function openPopup(modal) {
   modal.classList.add('popup_opened');
-  document.addEventListener('keydown', handleEscUp);
-  cardFormValidator.enableValidation();
-  editFormValidator.enableValidation();
-  placeFormElement.reset();
+  document.addEventListener('keydown', handleEscDown);
 }
 
 function closePopup(modal) {
   modal.classList.remove('popup_opened');
-  document.removeEventListener('keydown', handleEscUp); 
+  document.removeEventListener('keydown', handleEscDown); 
 }
 
 function handleFormCardSubmit(event) {
@@ -69,7 +66,7 @@ function handlerFormProfileSubmit(event) {
   closePopup(popupProfile);
 }
 
-const handleEscUp = (event) => {
+const handleEscDown = (event) => {
   if (event.key === 'Escape') {
     popups.forEach((popupElement) => {
       if (popupElement.classList.contains('popup_opened')) {  
@@ -100,9 +97,13 @@ popups.forEach((popupElement) => {
 
 placeFormElement.addEventListener('submit', handleFormCardSubmit);
 profileFormElement.addEventListener('submit', handlerFormProfileSubmit);
-addPlaceButton.addEventListener('click', () => openPopup(popupPlace));
+addPlaceButton.addEventListener('click', () => {
+  openPopup(popupPlace);
+  placeFormElement.reset();
+  cardFormValidator.disableSubmitButton();
+})
 
 editFormValidator.enableValidation();
 cardFormValidator.enableValidation();
 
-export { handleEscUp }
+export { handleEscDown }
