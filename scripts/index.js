@@ -15,7 +15,7 @@ const addPlaceButton = document.querySelector('.button_type_add'); //кнопк�
 
 const placeFormElement = popupPlace.querySelector('.popup__form-place');
 const itemNameFormElement = placeFormElement.querySelector('.popup__form-text_type_name-pic');
-const ItemPicFormElement = placeFormElement.querySelector('.popup__form-text_type_link');
+const itemPicFormElement = placeFormElement.querySelector('.popup__form-text_type_link');
 
 const popups = Array.from(document.querySelectorAll('.popup'));
 
@@ -46,11 +46,10 @@ function closePopup(modal) {
 function handleFormCardSubmit(event) {
   event.preventDefault();
   const name = itemNameFormElement.value;
-  const imageSrc = ItemPicFormElement.value;
+  const imageSrc = itemPicFormElement.value;
   const data = {name:name, link:imageSrc}
   newCardFromClassCard(data);
   closePopup(popupPlace);
-  placeFormElement.reset();
 };
 
 function newCardFromClassCard(item) {
