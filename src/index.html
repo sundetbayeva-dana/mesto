@@ -5,17 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Место</title>
-    <link rel="stylesheet" href="./pages/index.css">
 </head>
 
 <body class="page">
     <div class="page__container">
         <header class="header">
-            <img src="./images/logo.svg" alt="Логотип" class="header__logo">
+            <img src="<%=require('./images/logo.svg')%>" alt="Логотип" class="header__logo">
         </header>
         <main class="page__content">
             <section class="profile">
-                <img src="./images/Avatar.jpg" alt="Аватарка пользователя" class="profile__avatar">
+                <img src="<%=require('./images/Avatar.jpg')%>" alt="Аватарка пользователя" class="profile__avatar">
                 <div class="profile__info">
                     <div class="profile__info-name-cont">
                         <h1 class="profile__info-name">Жак-Ив Кусто</h1>
@@ -79,14 +78,14 @@
                     </button>
                     <h2 class="popup__title">Новое место</h2>
                     
-                    <form class="popup__form popup__form-place" name="place">
+                    <form class="popup__form popup__form-place" name="place" >
                         <input type="text" placeholder="Название"
                             class="popup__form-text popup__form-text_type_name-pic" name="name-place" id="name-place" required minlength="2" maxlength="30" >
                         <span class="name-place-error"></span>
                         <input type="url" placeholder="Ссылка на картинку"
                             class="popup__form-text popup__form-text_type_link" name="link-place" id="link-place" required>
                         <span class="link-place-error"></span>
-                        <button class="button button_type_save" type="submit" name="place">
+                        <button class="button button_type_save" type="submit" name="place" >
                             Сохранить
                         </button>
                     </form>
@@ -105,6 +104,6 @@
             
         </main>
     </div>
-    <script type="module" src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/pages/index.js"></script>
 </body>
 </html>

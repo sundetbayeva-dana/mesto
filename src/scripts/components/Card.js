@@ -1,13 +1,9 @@
-import { handleEscDown } from './index.js'
-const popupShowPicture = document.querySelector('.popup-card');
-const picture = popupShowPicture.querySelector('.popup-card__pic');
-const pictureName = popupShowPicture.querySelector('.popup-card__picname');
-
-class Card {    
-  constructor(data, cardSelector) {
-    this._name = data.name;
-    this._link = data.link;
+class Card {
+  constructor({item, cardSelector, handleCardClick}) {  
+    this._name = item.name;
+    this._link = item.link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {    
@@ -28,8 +24,7 @@ class Card {
 
   _setEventListeners() {
     this._element.querySelector('.card__pic').addEventListener('click', () => {
-      this._handleOpenpopupShowPicture();
-      document.addEventListener('keydown', handleEscDown);
+      this._handleCardClick();
     })
 
     this._element.querySelector('.button_type_delete').addEventListener('click', () => {
@@ -41,13 +36,6 @@ class Card {
     })
   }
 
-  _handleOpenpopupShowPicture() {    
-    picture.src = this._link;
-    popupShowPicture.classList.add('popup_opened');
-    picture.alt = this._name;
-    pictureName.textContent = this._name;
-  }
-  
   _handleDeleteCardClick = () => {
     this._element.remove();
     this._element = null;
