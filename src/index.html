@@ -14,7 +14,11 @@
         </header>
         <main class="page__content">
             <section class="profile">
-                <img src="<%=require('./images/Avatar.jpg')%>" alt="Аватарка пользователя" class="profile__avatar">
+                <div class="profile__avatar-container">
+                    <div class="popup__overlay"></div>
+                    <img src="<%=require('./images/Vector.svg')%>" class="profile__icon-edit">
+                    <img src="<%=require('./images/Avatar.jpg')%>" alt="Аватарка пользователя" class="profile__avatar">
+                </div>                
                 <div class="profile__info">
                     <div class="profile__info-name-cont">
                         <h1 class="profile__info-name">Жак-Ив Кусто</h1>
@@ -37,10 +41,16 @@
                             <img class="card__pic">
                             <div class="card__text">
                                 <h2 class="card__name"></h2>
-                                <button aria-label="Кнопка нравится" class="button button_type_like" type="button">
-                                </button>
+                                <div class="card__like">
+                                    <button aria-label="Кнопка нравится" class="button button_type_like" type="button">
+                                    </button>
+                                    <p class="card__like-count">
+                                        1
+                                    </p>
+                                </div>
+                                
                             </div>
-                        </li>
+                        </li>                            
                     </template>
                 </ul>                
             </section>
@@ -85,6 +95,35 @@
                         <input type="url" placeholder="Ссылка на картинку"
                             class="popup__form-text popup__form-text_type_link" name="link" id="link-place" required>
                         <span class="link-place-error"></span>
+                        <button class="button button_type_save" type="submit" name="place" >
+                            Сохранить
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="popup popup-confirm-delete">
+                <div class="popup__overlay"></div>
+                <div class="popup__content">
+                    <button aria-label="Кнопка закрыть" class="button button_type_close" type="button">
+                    </button>
+                    <h2 class="popup__title">Вы уверены?</h2>
+                    <button class="button button_type_save" type="submit" name="confirm-delete" >
+                        Да
+                    </button>
+                </div>
+            </div>
+
+            <div class="popup popup-avatar-change">
+                <div class="popup__overlay"></div>
+                <div class="popup__content">
+                    <button aria-label="Кнопка закрыть" class="button button_type_close" type="button">
+                    </button>
+                    <h2 class="popup__title">Обновить аватар</h2>
+                    <form class="popup__form popup__form-edit-avatar-picture" name="avatar-picture">
+                        <input type="url" placeholder="Ссылка на картинку"
+                            class="popup__form-text popup__form-text_type_link" name="link" id="link-avatar-picture" required>
+                        <span class="link-avatar-picture-error"></span>
                         <button class="button button_type_save" type="submit" name="place" >
                             Сохранить
                         </button>

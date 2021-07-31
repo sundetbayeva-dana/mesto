@@ -1,6 +1,5 @@
 import Popup from './Popup.js'
-import { placeFormElement, config} from '../utils/constants.js'; 
-  
+import { placeFormElement, config} from '../utils/constants.js';  
 
 class PopupWithForm extends Popup {
     constructor({ handleFormSubmit}, popupSelector ) {

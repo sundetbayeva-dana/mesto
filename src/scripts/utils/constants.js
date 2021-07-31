@@ -33,7 +33,10 @@ const profileName = document.querySelector('.profile__info-name'); //имя по
 const profileActivity = document.querySelector('.profile__info-activity'); //деятельности пользователя 
 const nameInput = document.querySelector('.popup__form-text_type_name'); //имя пользователя в инпуте  
 const activityInput = document.querySelector('.popup__form-text_type_activity'); //деятельность пользователя в инпуте 
- 
+const avatarPicture = document.querySelector('.profile__avatar');
+const popupEditAvatarPictureSelector = document.querySelector('.popup-avatar-change');
+
+
 const popupPlaceSelector = document.querySelector('.popup-place'); //попап места 
 const addPlaceButton = document.querySelector('.button_type_add'); //кнопка открытия попапа места 
  
@@ -60,5 +63,5 @@ const config = {
 
 export { initialCards, popupProfileSelector, editProfileButton, profileFormElement, profileName, 
   profileActivity, nameInput, activityInput, popupPlaceSelector, addPlaceButton, placeFormElement, itemNameFormElement, 
-  itemPicFormElement, popups, elementsList, popupShowPicture, picture, pictureName, config}
+  itemPicFormElement, popups, elementsList, popupShowPicture, picture, pictureName, config, avatarPicture, popupEditAvatarPictureSelector}
 
