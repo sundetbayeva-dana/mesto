@@ -52,6 +52,8 @@ const popupShowPicture = document.querySelector('.popup-card');
 const picture = popupShowPicture.querySelector('.popup-card__pic');
 const pictureName = popupShowPicture.querySelector('.popup-card__picname');
 
+const likeCount = document.querySelector('.card__like-count')
+
 const config = { 
   formSelector: '.popup__form', 
   inputSelector: '.popup__form-text', 
@@ -63,5 +65,5 @@ const config = {
 
 export { initialCards, popupProfileSelector, editProfileButton, profileFormElement, profileName, 
   profileActivity, nameInput, activityInput, popupPlaceSelector, addPlaceButton, placeFormElement, itemNameFormElement, 
-  itemPicFormElement, popups, elementsList, popupShowPicture, picture, pictureName, config, avatarPicture, popupEditAvatarPictureSelector}
+  itemPicFormElement, popups, elementsList, popupShowPicture, picture, pictureName, config, avatarPicture, popupEditAvatarPictureSelector, likeCount}
 

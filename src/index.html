@@ -17,15 +17,16 @@
                 <div class="profile__avatar-container">
                     <div class="popup__overlay"></div>
                     <img src="<%=require('./images/Vector.svg')%>" class="profile__icon-edit">
-                    <img src="<%=require('./images/Avatar.jpg')%>" alt="Аватарка пользователя" class="profile__avatar">
-                </div>                
+                    <!--<img src="<%=require('./images/Avatar.jpg')%>" alt="Аватарка пользователя" class="profile__avatar">-->
+                    <img src="#" alt="Аватарка пользователя" class="profile__avatar">
+                </div>
                 <div class="profile__info">
                     <div class="profile__info-name-cont">
-                        <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+                        <h1 class="profile__info-name"></h1>
                         <button aria-label="Кнопка изменить профиль" class="button button_type_edit" type="button">
                         </button>
                     </div>
-                    <p class="profile__info-activity">Исследователь океана</p>
+                    <p class="profile__info-activity"></p>
                 </div>
                 <button aria-label="Кнопка добавить" class="button button_type_add" type="button">
 
@@ -45,7 +46,7 @@
                                     <button aria-label="Кнопка нравится" class="button button_type_like" type="button">
                                     </button>
                                     <p class="card__like-count">
-                                        1
+                                        0
                                     </p>
                                 </div>
                                 
@@ -68,10 +69,10 @@
                     
                     <form class="popup__form popup__form-profile" name="profile">
                         <input type="text" placeholder="Имя"
-                            class="popup__form-text popup__form-text_type_name" name="name-profile" id ="name-profile" minlength="2" maxlength="40" required>
+                            class="popup__form-text popup__form-text_type_name" name="name" id ="name-profile" minlength="2" maxlength="40" required>
                             <span class="name-profile-error"></span>
                         <input type="text" placeholder="Занятие"
-                            class="popup__form-text popup__form-text_type_activity" name="description-profile" id="description-profile" minlength="2" maxlength="200" required>
+                            class="popup__form-text popup__form-text_type_activity" name="about" id="description-profile" minlength="2" maxlength="200" required>
                             <span class="description-profile-error"></span>
 
                         <button class="button button_type_save" type="submit">
@@ -122,7 +123,7 @@
                     <h2 class="popup__title">Обновить аватар</h2>
                     <form class="popup__form popup__form-edit-avatar-picture" name="avatar-picture">
                         <input type="url" placeholder="Ссылка на картинку"
-                            class="popup__form-text popup__form-text_type_link" name="link" id="link-avatar-picture" required>
+                            class="popup__form-text popup__form-text_type_link-avatar" name="link" id="link-avatar-picture" required>
                         <span class="link-avatar-picture-error"></span>
                         <button class="button button_type_save" type="submit" name="place" >
                             Сохранить

@@ -6,11 +6,15 @@ class PopupWithSubmitDeleting extends Popup {
         super(popupSelector);
     }
 
-    setEventListeners() {
+    setEventListeners(popupSelector) {
         super.setEventListeners();
-        this.popupSelector.querySelector(config.formSelector).addEventListener('submit', (evt) => {
-            evt.preventDefault();
+        this._popupSelector.querySelector('.submitButtonSelector').addEventListener('submit', () => {
+            this.open(popupSelector);
         })
+    }
+
+    method() {
+        
     }
 }
 

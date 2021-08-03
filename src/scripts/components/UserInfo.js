@@ -1,18 +1,29 @@
-import { popupProfileSelector, nameInput, activityInput, config } from '../utils/constants.js'
+import { popupProfileSelector, nameInput, activityInput, config, profileName, profileActivity, avatarPicture } from '../utils/constants.js'
 class UserInfo {
     constructor ({data}) {
         this._profileNameSelector = data.name;
-        this._profileActivitySelector = data.activity
+        this._profileActivitySelector = data.about;
+        this._profilePictureSelector = data.avatar;
+        this._profileId = data._id;
     }
 
     getUserInfo = () => {
-        nameInput.value = this._profileNameSelector.textContent;
-        activityInput.value = this._profileActivitySelector.textContent;
+        nameInput.value = this._profileNameSelector;
+        activityInput.value = this._profileActivitySelector;        
+    }
+
+    getUserInfoFromServer = () => {
+        profileName.textContent = this._profileNameSelector;
+        profileActivity.textContent = this._profileActivitySelector
+    }
+
+    getUserAvatarFromServer = () => {
+        avatarPicture.src = this._profilePictureSelector;
     }
 
     setUserInfo = () => {
-        this._profileNameSelector.textContent = nameInput.value;        
-        this._profileActivitySelector.textContent = activityInput.value;
+        this._profileNameSelector = nameInput.value; 
+        this._profileActivitySelector = activityInput.value;
     }
 
     ableSubmitButtonOpeningPopupProfile = () => {
