@@ -21,11 +21,13 @@ class PopupWithForm extends Popup {
             evt.preventDefault();
             this._handleFormSubmit(this._getInputValues());
         })
+        
+
     }
 
     close() {
         super.close();
-        placeFormElement.reset();
+        this.popupSelector.querySelector(config.formSelector).reset()
     }
 }
 

@@ -1,10 +1,12 @@
 import { popupProfileSelector, nameInput, activityInput, config, profileName, profileActivity, avatarPicture } from '../utils/constants.js'
 class UserInfo {
     constructor ({data}) {
+
         this._profileNameSelector = data.name;
         this._profileActivitySelector = data.about;
-        this._profilePictureSelector = data.avatar;
+        this._profilePictureSelector = data.avatar;  
         this._profileId = data._id;
+
     }
 
     getUserInfo = () => {
@@ -13,13 +15,21 @@ class UserInfo {
     }
 
     getUserInfoFromServer = () => {
+        
         profileName.textContent = this._profileNameSelector;
         profileActivity.textContent = this._profileActivitySelector
+
     }
 
     getUserAvatarFromServer = () => {
         avatarPicture.src = this._profilePictureSelector;
+
     }
+
+    setAvatar = (item) => { 
+        avatarPicture.src = item.link; 
+    }
+
 
     setUserInfo = () => {
         this._profileNameSelector = nameInput.value; 

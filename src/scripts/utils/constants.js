@@ -35,6 +35,7 @@ const nameInput = document.querySelector('.popup__form-text_type_name'); //им�
 const activityInput = document.querySelector('.popup__form-text_type_activity'); //деятельность пользователя в инпуте 
 const avatarPicture = document.querySelector('.profile__avatar');
 const popupEditAvatarPictureSelector = document.querySelector('.popup-avatar-change');
+const popupWithSubmitDeletingSelector = document.querySelector('.popup-confirm-delete')
 
 
 const popupPlaceSelector = document.querySelector('.popup-place'); //попап места 
@@ -54,6 +55,9 @@ const pictureName = popupShowPicture.querySelector('.popup-card__picname');
 
 const likeCount = document.querySelector('.card__like-count')
 
+const trashIcon = document.querySelector('.button_type_delete')
+
+
 const config = { 
   formSelector: '.popup__form', 
   inputSelector: '.popup__form-text', 
@@ -65,5 +69,5 @@ const config = {
 
 export { initialCards, popupProfileSelector, editProfileButton, profileFormElement, profileName, 
   profileActivity, nameInput, activityInput, popupPlaceSelector, addPlaceButton, placeFormElement, itemNameFormElement, 
-  itemPicFormElement, popups, elementsList, popupShowPicture, picture, pictureName, config, avatarPicture, popupEditAvatarPictureSelector, likeCount}
+  itemPicFormElement, popups, elementsList, popupShowPicture, picture, pictureName, config, avatarPicture, popupEditAvatarPictureSelector, likeCount, trashIcon, popupWithSubmitDeletingSelector}
 
