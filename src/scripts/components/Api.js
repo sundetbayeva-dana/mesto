@@ -62,7 +62,7 @@ class Api {
   }
 
   setLikeOnCard(data) {
-    return fetch(`${this._url}/cards/likes/${data.id}`, {
+      return fetch(`${this._url}/cards/likes/${data._id}`, {
       method: 'PUT',
       headers: {
         authorization: '7193839f-c244-42ce-8d35-bd3460436d94',
@@ -75,7 +75,7 @@ class Api {
   }
 
   removeLikeOnCard(data) {
-    return fetch(`${this._url}/cards/likes/${data.id}`, {
+    return fetch(`${this._url}/cards/likes/${data._id}`, {
       method: 'DELETE', 
       headers: {
         authorization: '7193839f-c244-42ce-8d35-bd3460436d94',
@@ -104,7 +104,8 @@ class Api {
   }
 
   deleteCard(data) {
-    return fetch(`${this._url}/cards/${data.id}`, {
+    console.log(data)
+    return fetch(`${this._url}/cards/${data._id}`, {
       method: 'DELETE',
       headers: {
         authorization: '7193839f-c244-42ce-8d35-bd3460436d94',

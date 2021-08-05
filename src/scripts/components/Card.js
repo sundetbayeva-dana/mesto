@@ -67,7 +67,7 @@ class Card {
 
     this._element.querySelector('.button_type_delete').addEventListener('click', () => {
       this._handleDeleteCard();
-      //document.querySelector('.popup-confirm-delete').classList.add('popup_opened');
+    
     })    
 
     this._element.querySelector('.button_type_like').addEventListener('click', () => {

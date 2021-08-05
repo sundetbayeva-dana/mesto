@@ -7,19 +7,35 @@ class PopupWithSubmitDeleting extends Popup {
         this.deleteCard = deleteCard;
     }
 
-    setEventListeners(popupSelector) {
+    setEventListeners() {
         super.setEventListeners();
-        this._popupSelector.querySelector('.button_type_save').addEventListener('click', (evt) => {
-            //this.open(popupSelector);
-            console.log('submit')
-            this.deleteCard(evt)
-        })
+        /*this._popupSelector.querySelector('.button_type_save').addEventListener('click', () => {
+            this.deleteCard()
+        })*/
+        this._popupSelector.querySelector('.button_type_save').addEventListener('click', this.handleDeleteCard)
+
+        
     }
 
-    deleteCard() {
-       
+    handleDeleteCard = () => {
+        this.deleteCard()
+    }
+
+    removeEventListeners() {
+        /*this._popupSelector.querySelector('.button_type_save').removeEventListener('click', () => {
+            this.deleteCard()
+        })*/
+        this._popupSelector.querySelector('.button_type_save').removeEventListener('click', this.handleDeleteCard)
 
     }
+
+    qwedeleteCard(data) {
+        console.log(data)
+        data.remove();
+        data = null;
+        this.removeEventListeners();
+    }
+
 
 }
 
