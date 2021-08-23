@@ -14,16 +14,13 @@ class UserInfo {
         activityInput.value = this._profileActivitySelector;        
     }
 
-    getUserInfoFromServer = () => {
-        
+    getUserInfoFromServer = () => {        
         profileName.textContent = this._profileNameSelector;
         profileActivity.textContent = this._profileActivitySelector
-
     }
 
     getUserAvatarFromServer = () => {
         avatarPicture.src = this._profilePictureSelector;
-
     }
 
     setAvatar = (item) => { 

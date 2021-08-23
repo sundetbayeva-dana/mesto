@@ -10,7 +10,7 @@ import PopupWithSubmitDeleting from '../components/PopupWithSubmitDeleting.js';
   
 import {  initialCards, popupProfileSelector, editProfileButton, profileFormElement, profileName,  
 profileActivity, popupPlaceSelector, addPlaceButton, placeFormElement,   
-elementsList, popupShowPicture, config, avatarPicture, popupEditAvatarPictureSelector, popupWithSubmitDeletingSelector} from '../utils/constants.js'; 
+elementsList, popupShowPicture, config, avatarPicture, popupEditAvatarPictureSelector, popupWithSubmitDeletingSelector, popup} from '../utils/constants.js'; 
  
 const editFormValidator = new FormValidator(config, profileFormElement);  
 const cardFormValidator = new FormValidator(config, placeFormElement);  
@@ -18,11 +18,23 @@ const popupWithImage = new PopupWithImage(popupShowPicture);
 popupWithImage.setEventListeners(); 
 
 const api = new Api({
-  url: 'https://mesto.nomoreparties.co/v1/cohort-26',
+  url: 'https://mesto.nomoreparties.co/v1/cohort-27',
   headers: {
-    authorization: '7193839f-c244-42ce-8d35-bd3460436d94'
+    authorization: 'a3d0e919-8de7-4208-b834-e803f8c056f2'
   }
 })
+const qwe = document.querySelectorAll('.button_type_save');
+const renderLoading = (isLoading) => {
+  if (isLoading) {    
+    qwe.forEach((item) => {
+      item.textContent = 'Сохранение...'
+    })
+  } else {
+    qwe.forEach((item) => {
+      item.textContent = 'Сохранить'
+    })
+  }
+}
 
 editFormValidator.enableValidation();  
 cardFormValidator.enableValidation();
@@ -44,8 +56,17 @@ Promise.all([
     handleFormSubmit: (item) => { 
       userInfoProfile.setUserInfo(res);
       userInfoProfile.getUserInfoFromServer(item)
-      popupProfile.close();
+      renderLoading(true)
       api.setUserInfo(item)
+      .then((item) => {
+        if (item.ok) {
+          return item.json();       
+        }
+      })
+      .finally(() => {
+        renderLoading(false);
+        popupProfile.close();
+      })
     }   
   }, popupProfileSelector)   
   popupProfile.setEventListeners(); 
@@ -58,8 +79,20 @@ Promise.all([
   const popupEditAvatarPicture = new PopupWithForm({
     handleFormSubmit: (item) => {
       userInfoProfile.setAvatar(item)
-      popupEditAvatarPicture.close();      
+      
+      renderLoading(true)
       api.setUserAvatar(item)
+      .then((resp) => {
+        if (resp.ok) {
+          //renderLoading(false)
+        }
+      })
+      .finally(() => {
+        renderLoading(false)
+        popupEditAvatarPicture.close(); 
+      })
+     
+      
     }
   }, popupEditAvatarPictureSelector)
   
@@ -68,89 +101,77 @@ Promise.all([
   avatarPicture.addEventListener('click', () => {
     popupEditAvatarPicture.open();
   })
-
-  const popupAddPlace = new PopupWithForm({     
-    handleFormSubmit: (item) => {
+  
+  const popupAddPlace = new PopupWithForm({   
+     
+    handleFormSubmit: (item) => { 
+      renderLoading(true)
       api.addCards(item.name, item.link)
       .then((resNewCard) => {
-        console.log(resNewCard)
-      
-      const card = new Card({ 
-        item:item,  
-        cardSelector: '.elements__list-template', 
-        handleCardClick: () => { 
-          popupWithImage.open(item);
-          console.log(cards)       
-        },
-        handleLikeClick: (state) => {
-          
-          if (state === true) {
-            
-            api.removeLikeOnCard(resNewCard)
-  
-            .then((resp) => {              
-              return card.showLikeCountFromServer(resp)
-            })    
-            .then(() => {
-              return card.removeLike()
-            })
-   
-          
-          } else if (state === false) {
-
-
-            api.setLikeOnCard(resNewCard)
-            .then((resp) => {
-              console.log(resp)
-              return card.showLikeCountFromServer(resp)
-            })
-            .then(() => {              
-              return card.activeLike()
-            })
-          }
-  
-        },
-        handleDeleteCard: () => {
-          const popupWithSubmitDeleting = new PopupWithSubmitDeleting(
-            popupWithSubmitDeletingSelector,
-            {
-              deleteCard: () => {
-                api.deleteCard(item)
-                popupWithSubmitDeleting.close()
-              }                
-            })
-          popupWithSubmitDeleting.open()
-          popupWithSubmitDeleting.setEventListeners()
         
+        if (resNewCard.ok) {
+          return resNewCard.json()
+
         }
-
-
-
-      });
+        
+        const card = new Card({ 
+          item:item,  
+          cardSelector: '.elements__list-template', 
+          handleCardClick: () => { 
+            popupWithImage.open(item);      
+          },
+          handleLikeClick: (state) => {          
+            if (state === true) {            
+              api.removeLikeOnCard(resNewCard)  
+              .then((resp) => {              
+                return card.showLikeCountFromServer(resp)
+              })    
+              .then(() => {
+                return card.removeLike()
+              })
+            } else if (state === false) {
+              api.setLikeOnCard(resNewCard)
+              .then((resp) => {
+                return card.showLikeCountFromServer(resp)
+              })
+              .then(() => {              
+                return card.activeLike()
+              })
+            }
+  
+          },
+          handleDeleteCard: () => {
+            const popupWithSubmitDeleting = new PopupWithSubmitDeleting(
+              popupWithSubmitDeletingSelector,
+              {
+                deleteCard: () => {
+                  api.deleteCard(resNewCard)
+                  popupWithSubmitDeleting.close()
+                  popupWithSubmitDeleting.qwedeleteCard(cardElement)
+                }                
+              }
+            )
+            popupWithSubmitDeleting.open()
+            popupWithSubmitDeleting.setEventListeners()
+          
+          }
+        })
+      
       const cardElement = card.generateCard();
-      console.log(cardElement)
+
       cardList.addItem(cardElement);
       card.showTrashIcon(resNewCard, item)    
-
+      //renderLoading(true)
+    })
+    .catch((err) => {
+      console.log(err)
     })
 
-
-
-
-      
-
-    
-  
-
-    /*api.addCards(item.name, item.link)
-    .then((res) => {      
-      card.showTrashIcon(res, item)
-      
-    })*/
-
-  
-    popupAddPlace.close();
-    } 
+    .finally(() => {
+      renderLoading(false)
+      popupAddPlace.close();
+    })
+    }
    
   }, popupPlaceSelector); 
 
@@ -170,8 +191,6 @@ Promise.all([
       _id: item._id,      
     }
   })
-
-
 
   cardList = new Section({ 
     items: cardsArray,  
@@ -212,7 +231,7 @@ Promise.all([
               deleteCard: () => {
                 api.deleteCard(item)
                 popupWithSubmitDeleting.close()
-                console.log(item)
+
                 popupWithSubmitDeleting.qwedeleteCard(cardElement)
               }                
             })
@@ -233,10 +252,6 @@ Promise.all([
           } 
   }, elementsList)
   cardList.renderItems();
-
-
-
-
 })
 
 

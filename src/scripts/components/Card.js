@@ -53,9 +53,6 @@ class Card {
 
   showTrashIcon(data, res) {
     if ((data.owner == res._id) || (data.name == res.name)) {
-      console.log(data)
-      console.log(res)
-      console.log('aaa')
       this._element.querySelector('.button_type_delete').classList.add('popup_opened')
     } 
   }

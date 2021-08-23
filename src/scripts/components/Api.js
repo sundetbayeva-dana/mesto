@@ -8,7 +8,7 @@ class Api {
     return fetch(`${this._url}/cards`, {
       method: 'GET',
       headers: {
-        authorization: '7193839f-c244-42ce-8d35-bd3460436d94',
+        authorization: 'a3d0e919-8de7-4208-b834-e803f8c056f2',
       }     
     })
     .then((res) => {
@@ -20,7 +20,7 @@ class Api {
     return fetch(`${this._url}/users/me` , {
       method: 'GET', 
       headers: {
-        authorization: '7193839f-c244-42ce-8d35-bd3460436d94',
+        authorization: 'a3d0e919-8de7-4208-b834-e803f8c056f2',
       }
     })
     .then((res) => {
@@ -33,7 +33,7 @@ class Api {
     return fetch(`${this._url}/users/me/avatar` , {
       method: 'PATCH', 
       headers: {
-        authorization: '7193839f-c244-42ce-8d35-bd3460436d94',
+        authorization: 'a3d0e919-8de7-4208-b834-e803f8c056f2',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -49,7 +49,7 @@ class Api {
     return fetch(`${this._url}/users/me` , {
       method: 'PATCH', 
       headers: {
-        authorization: '7193839f-c244-42ce-8d35-bd3460436d94',
+        authorization: 'a3d0e919-8de7-4208-b834-e803f8c056f2',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({          
@@ -65,7 +65,7 @@ class Api {
       return fetch(`${this._url}/cards/likes/${data._id}`, {
       method: 'PUT',
       headers: {
-        authorization: '7193839f-c244-42ce-8d35-bd3460436d94',
+        authorization: 'a3d0e919-8de7-4208-b834-e803f8c056f2',
       }
     })
     .then((resp) => {
@@ -78,7 +78,7 @@ class Api {
     return fetch(`${this._url}/cards/likes/${data._id}`, {
       method: 'DELETE', 
       headers: {
-        authorization: '7193839f-c244-42ce-8d35-bd3460436d94',
+        authorization: 'a3d0e919-8de7-4208-b834-e803f8c056f2',
       }
     })
     .then((res) => {
@@ -91,7 +91,7 @@ class Api {
     return fetch(`${this._url}/cards`, {
       method: 'POST',
       headers: {
-        authorization: '7193839f-c244-42ce-8d35-bd3460436d94',
+        authorization: 'a3d0e919-8de7-4208-b834-e803f8c056f2',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -108,7 +108,7 @@ class Api {
     return fetch(`${this._url}/cards/${data._id}`, {
       method: 'DELETE',
       headers: {
-        authorization: '7193839f-c244-42ce-8d35-bd3460436d94',
+        authorization: 'a3d0e919-8de7-4208-b834-e803f8c056f2',
         'Content-Type': 'application/json'
       }
     })
