@@ -1,5 +1,4 @@
-import Popup from './Popup.js'
-import { config} from '../utils/constants.js';  
+import Popup from './Popup.js' 
 
 class PopupWithSubmitDeleting extends Popup {
     constructor(popupSelector, {deleteCard} ) {
@@ -9,12 +8,7 @@ class PopupWithSubmitDeleting extends Popup {
 
     setEventListeners() {
         super.setEventListeners();
-        /*this._popupSelector.querySelector('.button_type_save').addEventListener('click', () => {
-            this.deleteCard()
-        })*/
-        this._popupSelector.querySelector('.button_type_save').addEventListener('click', this.handleDeleteCard)
-
-        
+        this._popupSelector.querySelector('.button_type_submit').addEventListener('click', this.handleDeleteCard);        
     }
 
     handleDeleteCard = () => {
@@ -22,21 +16,14 @@ class PopupWithSubmitDeleting extends Popup {
     }
 
     removeEventListeners() {
-        /*this._popupSelector.querySelector('.button_type_save').removeEventListener('click', () => {
-            this.deleteCard()
-        })*/
-        this._popupSelector.querySelector('.button_type_save').removeEventListener('click', this.handleDeleteCard)
-
+        this._popupSelector.querySelector('.button_type_submit').removeEventListener('click', this.handleDeleteCard)
     }
 
-    qwedeleteCard(data) {
-        console.log(data)
+    qwedeleteCard(data) {  
         data.remove();
         data = null;
         this.removeEventListeners();
     }
-
-
 }
 
 export default PopupWithSubmitDeleting

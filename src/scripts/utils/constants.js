@@ -36,7 +36,6 @@ const activityInput = document.querySelector('.popup__form-text_type_activity');
 const avatarPicture = document.querySelector('.profile__avatar');
 const popupEditAvatarPictureSelector = document.querySelector('.popup-avatar-change');
 const popupWithSubmitDeletingSelector = document.querySelector('.popup-confirm-delete')
-const popup = document.querySelector('.popup')
 
 
 const popupPlaceSelector = document.querySelector('.popup-place'); //попап места 
@@ -64,11 +63,14 @@ const config = {
   inputSelector: '.popup__form-text', 
   submitButtonSelector: '.button_type_save', 
   inactiveButtonClass: 'button_type_invalid', 
-  inputErrorClass: 'popup__form-text-error', 
+  inputErrorClass: 'popup__form-text-error',
   errorClass: 'popup__form-text-error_active', 
-} 
+}
+
+const saveButtons = document.querySelectorAll(config.submitButtonSelector);
 
 export { initialCards, popupProfileSelector, editProfileButton, profileFormElement, profileName, 
   profileActivity, nameInput, activityInput, popupPlaceSelector, addPlaceButton, placeFormElement, itemNameFormElement, 
-  itemPicFormElement, popups, elementsList, popupShowPicture, picture, pictureName, config, avatarPicture, popupEditAvatarPictureSelector, likeCount, trashIcon, popupWithSubmitDeletingSelector, popup}
+  itemPicFormElement, popups, elementsList, popupShowPicture, picture, pictureName, config, avatarPicture, popupEditAvatarPictureSelector, 
+  likeCount, trashIcon, popupWithSubmitDeletingSelector, saveButtons}
 
