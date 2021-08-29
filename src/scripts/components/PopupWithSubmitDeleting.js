@@ -19,7 +19,7 @@ class PopupWithSubmitDeleting extends Popup {
         this._popupSelector.querySelector('.button_type_submit').removeEventListener('click', this.handleDeleteCard)
     }
 
-    qwedeleteCard(data) {  
+    deleteCardItem(data) {  
         data.remove();
         data = null;
         this.removeEventListeners();

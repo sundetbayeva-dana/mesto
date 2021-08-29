@@ -57,6 +57,8 @@ const likeCount = document.querySelector('.card__like-count')
 
 const trashIcon = document.querySelector('.button_type_delete')
 
+const avatarFormElement = document.querySelector('.popup__form-edit-avatar-picture')
+
 
 const config = { 
   formSelector: '.popup__form', 
@@ -72,5 +74,5 @@ const saveButtons = document.querySelectorAll(config.submitButtonSelector);
 export { initialCards, popupProfileSelector, editProfileButton, profileFormElement, profileName, 
   profileActivity, nameInput, activityInput, popupPlaceSelector, addPlaceButton, placeFormElement, itemNameFormElement, 
   itemPicFormElement, popups, elementsList, popupShowPicture, picture, pictureName, config, avatarPicture, popupEditAvatarPictureSelector, 
-  likeCount, trashIcon, popupWithSubmitDeletingSelector, saveButtons}
+  likeCount, trashIcon, popupWithSubmitDeletingSelector, saveButtons, avatarFormElement}
 

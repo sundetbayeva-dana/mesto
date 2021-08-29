@@ -4,18 +4,18 @@ class Popup {
     }
 
     open() {
-        this._popupSelector.classList.add('popup_opened');
+        this._popupSelector.classList.add('element_visible');
         document.addEventListener('keydown', this._handleEscClose); 
     }
 
     close() {
-        this._popupSelector.classList.remove('popup_opened'); 
+        this._popupSelector.classList.remove('element_visible'); 
         document.removeEventListener('keydown', this._handleEscClose);
     }
 
     _handleEscClose = (event) => {
         if (event.key === 'Escape') {
-            if (this._popupSelector.classList.contains('popup_opened')) {
+            if (this._popupSelector.classList.contains('element_visible')) {
                 this.close();
             }
         }

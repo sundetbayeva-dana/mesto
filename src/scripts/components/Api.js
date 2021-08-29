@@ -1,7 +1,6 @@
 class Api {
   constructor(config) {
     this._url = config.url;
-    this._headers = config.headers;
   }
 
   getCards() {
@@ -12,24 +11,36 @@ class Api {
       }     
     })
     .then((res) => {
-      return res.json()
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Ошибка: ${resp.status}`);
+    })
+    .catch((err) => {
+      console.log(err)
     })
   }
 
   getUserInformation() {
-    return fetch(`${this._url}/users/me` , {
+    return fetch(`${this._url}/users/me`, {
       method: 'GET', 
       headers: {
         authorization: 'a3d0e919-8de7-4208-b834-e803f8c056f2',
       }
     })
     .then((res) => {
-      return res.json()
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Ошибка: ${resp.status}`);
+    })
+    .catch((err) => {
+      console.log(err)
     })
   }
 
   setUserAvatar(data) {
-    return fetch(`${this._url}/users/me/avatar` , {
+    return fetch(`${this._url}/users/me/avatar`, {
       method: 'PATCH', 
       headers: {
         authorization: 'a3d0e919-8de7-4208-b834-e803f8c056f2',
@@ -42,7 +53,7 @@ class Api {
   }
  
   setUserInfo(data) {
-    return fetch(`${this._url}/users/me` , {
+    return fetch(`${this._url}/users/me`, {
       method: 'PATCH', 
       headers: {
         authorization: 'a3d0e919-8de7-4208-b834-e803f8c056f2',

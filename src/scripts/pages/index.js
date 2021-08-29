@@ -8,20 +8,20 @@ import PopupWithImage from '../components/PopupWithImage.js';
 import Api from '../components/Api.js';
 import PopupWithSubmitDeleting from '../components/PopupWithSubmitDeleting.js';
   
-import {  initialCards, popupProfileSelector, editProfileButton, profileFormElement, profileName,  
-profileActivity, popupPlaceSelector, addPlaceButton, placeFormElement,   
-elementsList, popupShowPicture, config, avatarPicture, popupEditAvatarPictureSelector, popupWithSubmitDeletingSelector, saveButtons} from '../utils/constants.js'; 
+import {  popupProfileSelector, editProfileButton, profileFormElement, 
+popupPlaceSelector, addPlaceButton, placeFormElement,   
+elementsList, popupShowPicture, config, avatarPicture, popupEditAvatarPictureSelector, 
+popupWithSubmitDeletingSelector, saveButtons, avatarFormElement} from '../utils/constants.js'; 
  
 const editFormValidator = new FormValidator(config, profileFormElement);  
-const cardFormValidator = new FormValidator(config, placeFormElement);  
+const cardFormValidator = new FormValidator(config, placeFormElement);
+const avatarFormValidator = new FormValidator(config, avatarFormElement)
 const popupWithImage = new PopupWithImage(popupShowPicture); 
+
 popupWithImage.setEventListeners(); 
 
 const api = new Api({
-  url: 'https://mesto.nomoreparties.co/v1/cohort-27',
-  headers: {
-    authorization: 'a3d0e919-8de7-4208-b834-e803f8c056f2'
-  }
+  url: 'https://mesto.nomoreparties.co/v1/cohort-27'  
 })
 
 const renderLoading = (isLoading) => {
@@ -38,6 +38,7 @@ const renderLoading = (isLoading) => {
 
 editFormValidator.enableValidation();  
 cardFormValidator.enableValidation();
+avatarFormValidator.enableValidation();
 
 let cardsArray = [];
 let cardList = null;
@@ -171,7 +172,7 @@ Promise.all([
                 deleteCard: () => {
                   api.deleteCard(resp)
                   popupWithSubmitDeleting.close()
-                  popupWithSubmitDeleting.qwedeleteCard(cardElement)
+                  popupWithSubmitDeleting.deleteCardItem(cardElement)
                 }                
               }
             )
@@ -262,7 +263,7 @@ Promise.all([
               deleteCard: () => {
                 api.deleteCard(item)
                 popupWithSubmitDeleting.close();
-                popupWithSubmitDeleting.qwedeleteCard(cardElement)
+                popupWithSubmitDeleting.deleteCardItem(cardElement)
               }                
             })
             
@@ -275,7 +276,7 @@ Promise.all([
       cardList.addItem(cardElement);
       card.getLike(item, res)
       card.showTrashIcon(item, res)
-      card.showLikeCount(item)
+      card.showLikeCountFromServer(item)
     } 
   }, elementsList)
   cardList.renderItems();
@@ -283,8 +284,3 @@ Promise.all([
 .catch((err) => {
   console.log(err)
 })
-
-
-
-
-
