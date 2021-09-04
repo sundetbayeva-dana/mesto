@@ -40,29 +40,23 @@ const renderLoading = (isLoading) => {
   }
 }
 
-
-
-
-
 editFormValidator.enableValidation();  
 cardFormValidator.enableValidation();
 avatarFormValidator.enableValidation();
-
-
 
 Promise.all([
   api.getUserInformation(),
   api.getCards()
 ])
-.then(([res, cards]) => {
-  const userInfoProfile = new UserInfo({data: res}) 
+.then(([resOwnerData, cards]) => {
+  const userInfoProfile = new UserInfo({data: resOwnerData}) 
 
-  userInfoProfile.getUserInfoFromServer(res)
-  userInfoProfile.getUserAvatarFromServer(res)
+  userInfoProfile.getUserInfoFromServer(resOwnerData)
+  userInfoProfile.getUserAvatarFromServer(resOwnerData)
 
   const popupProfile = new PopupWithForm({ 
     handleFormSubmit: (item) => { 
-      userInfoProfile.setUserInfo(res);
+      userInfoProfile.setUserInfo(resOwnerData);
       userInfoProfile.getUserInfoFromServer(item)
       renderLoading(true)
       api.setUserInfo(item)      
@@ -86,48 +80,48 @@ Promise.all([
       item:item,  
       cardSelector: '.elements__list-template', 
       handleCardClick: () => { 
-        popupWithImage.open(item); 
+        popupWithImage.open(item);      
       },
-      handleLikeClick: (state) => {
-        if (state === true) {
-          api.removeLikeOnCard(item)            
+      handleLikeClick: (state) => {          
+        if (state === true) {            
+          api.removeLikeOnCard(resp)
           .then((resp) => {              
             return card.showLikeCountFromServer(resp)
-          }) 
+          })    
           .then(() => {
             return card.removeLike()
           })
         } else if (state === false) {
-          api.setLikeOnCard(item)            
+          api.setLikeOnCard(resp)          
           .then((resp) => {
             return card.showLikeCountFromServer(resp)
           })
           .then(() => {              
             return card.activeLike()
           })
-        }
-      },
-      handleDeleteCard: () => {
+
+        }  
+      },      
+      handleDeleteCard: () => {        
         const popupWithSubmitDeleting = new PopupWithSubmitDeleting(
           popupWithSubmitDeletingSelector,
           {
             deleteCard: () => {
-              api.deleteCard(item)
-              popupWithSubmitDeleting.close();
+              api.deleteCard(resp)
+              popupWithSubmitDeleting.close()
               popupWithSubmitDeleting.deleteCardItem(cardElement)
             }                
-          })
-          
+          }
+        )
         popupWithSubmitDeleting.open()
-        popupWithSubmitDeleting.setEventListeners()
-        return card; 
+        popupWithSubmitDeleting.setEventListeners()          
       }
-        
-    });
-    
-    const cardElement = card.generateCard();
-    cardList.addItem(cardElement);
-    card.showTrashIcon(resp, item)
+    })
+    const cardElement = card.generateCard(); 
+    cardList.addItem(cardElement); 
+    card.showTrashIcon(resOwnerData, resp);
+    card.getLike(resOwnerData, resp)
+    card.showLikeCountFromServer(resp)    
   }
 
   const popupEditAvatarPicture = new PopupWithForm({
@@ -154,57 +148,9 @@ Promise.all([
     handleFormSubmit: (item) => { 
       renderLoading(true)
       api.addCards(item.name, item.link)
-      .then((resp) => {        
-        /*const card = new Card({ 
-          item:item,  
-          cardSelector: '.elements__list-template', 
-          handleCardClick: () => { 
-            popupWithImage.open(item);      
-          },
-          handleLikeClick: (state) => {          
-            if (state === true) {            
-              api.removeLikeOnCard(resp)              
-              .then((resp) => {              
-                return card.showLikeCountFromServer(resp)
-              })    
-              .then(() => {
-                return card.removeLike()
-              })              
-            } else if (state === false) {
-              api.setLikeOnCard(resp)
-              
-              .then((resp) => {
-                return card.showLikeCountFromServer(resp)
-              })
-              .then(() => {              
-                return card.activeLike()
-              })
-              
-            }
-  
-          },
-          
-          handleDeleteCard: () => {
-            
-            const popupWithSubmitDeleting = new PopupWithSubmitDeleting(
-              popupWithSubmitDeletingSelector,
-              {
-                deleteCard: () => {
-                  api.deleteCard(resp)
-                  popupWithSubmitDeleting.close()
-                  popupWithSubmitDeleting.deleteCardItem(cardElement)
-                }                
-              }
-            )
-            popupWithSubmitDeleting.open()
-            popupWithSubmitDeleting.setEventListeners()          
-          }
-        })*/
-        addCards(item, resp);
-        //const cardElement = card.generateCard();
-        //cardList.addItem(cardElement);
-        //card.showTrashIcon(resp, item)
+      .then((resp) => {
         popupAddPlace.close();
+        addCards(item, resp);
       })
       .finally(() => {
         renderLoading(false)
@@ -229,6 +175,7 @@ Promise.all([
   cardList = new Section({ 
     items: cardsArray,  
     renderer: (item) => { 
+      
       const card = new Card({ 
         item:item,  
         cardSelector: '.elements__list-template', 
@@ -268,13 +215,8 @@ Promise.all([
           popupWithSubmitDeleting.open()
           popupWithSubmitDeleting.setEventListeners()        
         }        
-      });
-
-      const cardElement = card.generateCard(); 
-      cardList.addItem(cardElement);
-      card.getLike(item, res)
-      card.showTrashIcon(item, res)
-      card.showLikeCountFromServer(item)
+      });      
+      addCards(item, item);
     } 
   }, elementsList)
   cardList.renderItems();

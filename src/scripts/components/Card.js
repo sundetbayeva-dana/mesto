@@ -24,12 +24,12 @@ class Card {
     return this._element;
   }  
 
-  getLike(data, res) {
-    this._isLiker = data.likes.filter((item) => {
-      return item._id == res._id
+  getLike(resDataOwner, resp) {
+    this._isLiked = resp.likes.filter((item) => {
+      return item._id == resDataOwner._id      
     })
     .length > 0;
-    if (this._isLiker) {
+    if (this._isLiked) {
       this._element.querySelector('.button_type_like').classList.add('button_type_like-active');
     } else {
       this._element.querySelector('.button_type_like').classList.remove('button_type_like-active');
@@ -44,8 +44,8 @@ class Card {
     this._element.querySelector('.button_type_like').classList.add('button_type_like-active');    
   }
 
-  showTrashIcon(data, res) {
-    if ((data.owner == res._id) || (data.name == res.name)) {
+  showTrashIcon(resDataOwner, resp) {
+    if ((resDataOwner._id == resp.owner) || (resDataOwner._id == resp.owner._id))  {
       this._element.querySelector('.button_type_delete').classList.add('element_visible')
     } 
   }
