@@ -72,8 +72,8 @@ class Api {
     })  
   }
 
-  setLikeOnCard(data) {
-    return fetch(`${this._url}/cards/likes/${data._id}`, {
+  setLikeOnCard(id) {
+    return fetch(`${this._url}/cards/likes/${id}`, {
       method: 'PUT',
       headers: {
         authorization: this._authorization,
@@ -85,8 +85,8 @@ class Api {
     })
   }
 
-  removeLikeOnCard(data) {
-    return fetch(`${this._url}/cards/likes/${data._id}`, {
+  removeLikeOnCard(id) {
+    return fetch(`${this._url}/cards/likes/${id}`, {
       method: 'DELETE', 
       headers: {
         authorization: this._authorization,

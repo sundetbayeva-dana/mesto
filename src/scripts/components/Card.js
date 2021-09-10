@@ -69,7 +69,7 @@ class Card {
   }
 
   showLikeCountFromServer = (res) => {
-    this._element.querySelector('.card__like-count').textContent = res.likes.length
+    this._element.querySelector('.card__like-count').textContent = res.length
   }
 }
 
