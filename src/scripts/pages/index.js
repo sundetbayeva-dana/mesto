@@ -75,56 +75,7 @@ Promise.all([
     userInfoProfile.getUserInfo(); 
     userInfoProfile.ableSubmitButtonOpeningPopupProfile(); 
   })
-
-  /*const addCards = (item, resp) => {
-    const card = new Card({ 
-      item:item,  
-      cardSelector: '.elements__list-template', 
-      handleCardClick: () => { 
-        popupWithImage.open(item);      
-      },
-      handleLikeClick: (state) => {          
-        if (state === true) {            
-          api.removeLikeOnCard(resp._id)
-          .then((resp) => {
-            return card.showLikeCountFromServer(resp.likes)
-          })    
-          .then(() => {
-            return card.removeLike()
-          })
-        } else if (state === false) {
-          api.setLikeOnCard(resp._id)          
-          .then((resp) => {
-            return card.showLikeCountFromServer(resp.likes)
-          })
-          .then(() => {              
-            return card.activeLike()
-          })
-        }  
-      },      
-      handleDeleteCard: () => {        
-        const popupWithSubmitDeleting = new PopupWithSubmitDeleting(
-          popupWithSubmitDeletingSelector,
-          {
-            deleteCard: () => {
-              api.deleteCard(resp)
-              .then(() => {
-                popupWithSubmitDeleting.close()
-                popupWithSubmitDeleting.deleteCardItem(cardElement)
-              })
-            }                
-          }
-        )
-        popupWithSubmitDeleting.open()
-        popupWithSubmitDeleting.setEventListeners()          
-      }
-    })
-    const cardElement = card.generateCard(); 
-    cardList.addItem(cardElement); 
-    card.showTrashIcon(resOwnerData, resp);
-    card.getLike(resOwnerData, resp)
-    card.showLikeCountFromServer(resp.likes)    
-  }*/
+  
   const popupWithSubmitDeleting = new PopupWithSubmitDeleting(popupWithSubmitDeletingSelector)
   popupWithSubmitDeleting.setEventListeners()
 
